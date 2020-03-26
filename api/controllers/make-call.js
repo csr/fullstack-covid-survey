@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Make call',
 
 
-  description: '',
+  description: 'This function makes a call to the input telephone number to adminster the survey.',
 
 
   inputs: {
