@@ -1159,7 +1159,8 @@ body {
 #page-wrap {
   padding-bottom: 0px;
 }
-input[type=text] {
+input[type=text],
+input[type=tel] {
   height: 46px!important;
   line-height: 46px;
   vertical-align: middle;
