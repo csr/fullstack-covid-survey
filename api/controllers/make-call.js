@@ -42,8 +42,8 @@ module.exports = {
       greeting = "buonasera";
     }
 
-    var timeoutSeconds = 1
-
+    var timeoutSeconds = 1; // default is 1
+    var voiceLevel = 0.8; // default is 0.5
     var greetingPhrase = greeting + ' ' + customerName + '. ' + 'Grazie per aver risposto alla chiamata, vorrei informarti che la conversazione verrà registrata per migliorare il servizio.';
 
     const ncco = [
@@ -52,12 +52,14 @@ module.exports = {
         voiceName: 'Carla',
         text: greetingPhrase,
         bargeIn: false
+        level: voiceLevel
       },
       {
         action: 'talk',
         voiceName: 'Carla',
         text: 'Premi zero per iniziare il questionario.',
         bargeIn: true
+        level: voiceLevel
       },
       {
         action: 'input',
@@ -69,6 +71,7 @@ module.exports = {
         text: 'Da uno a cinque, quanto sei in grado di camminare?',
         voiceName: 'Carla',
         bargeIn: true
+        level: voiceLevel
       },
       {
         action: 'input',
@@ -80,6 +83,7 @@ module.exports = {
         text: 'Molte grazie. Da uno a cinque, quanto sei in grado di lavarti e vestirti?',
         voiceName: 'Carla',
         bargeIn: true,
+        level: voiceLevel
       },
       {
         action: 'input',
@@ -91,6 +95,7 @@ module.exports = {
         text: 'Risposta salvata. Da uno a cinque, quanto riesci a svolgere attività abituali?',
         voiceName: 'Carla',
         bargeIn: true,
+        level: voiceLevel
       },
       {
         action: 'input',
@@ -102,6 +107,7 @@ module.exports = {
         text: 'Grazie, abbiamo quasi finito. Da uno a cinque, quanto provi dolore o fastidio?',
         voiceName: 'Carla',
         bargeIn: true,
+        level: voiceLevel
       },
       {
         action: 'input',
@@ -113,6 +119,7 @@ module.exports = {
         text: 'Questa è l\'ultima domanda. Da uno a cinque, soffri di ansia o depressione?',
         voiceName: 'Carla',
         bargeIn: true,
+        level: voiceLevel
       },
       {
         action: 'input',
@@ -124,6 +131,7 @@ module.exports = {
         text: 'Abbiamo finito. Grazie e arrivederci ' + customerName,
         voiceName: 'Carla',
         bargeIn: false,
+        level: voiceLevel
       },
     ];
 
