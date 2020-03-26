@@ -28,12 +28,58 @@ module.exports = {
       privateKey: 'assets/privatekey.txt',
     });
 
+    var greeting = "buongiorno"
+    var customerName = "Cesare"
+
+    if (now().before('13:00:00')) {
+      greeting = "buongiorno"
+    } else if (now().before('16:00:00')) {
+      greeting = "buon pomeriggio"
+    } else {
+      greeting = "buonasera"
+    }
+
+    var greetingPhrase = greeting + ' ' + customerName + '. ' + 'Grazie per aver accettato l\'invito. Vorrei informarti che la conversazione verrà registrata per migliorare il servizio. Premi zero per iniziare.';
+
     const ncco = [
       {
         action: 'talk',
         voiceName: 'Carla',
-        text:
-          'Ciao! Congratulazioni, ce l hai fatta. Adesso non ti resta che finire gli ultimi dettagli',
+        text: greetingPhrase,
+        bargeIn: true
+      },
+      {
+        action: 'input',
+        submitOnHash: false,
+        timeOut: 10,
+      },
+      {
+        action: 'talk',
+        text: 'Da uno a cinque, quanto sei in grado di camminare? Rispondi con il tastierino.',
+        voiceName: 'Carla',
+        bargeIn: true
+      },
+      {
+        action: 'input',
+        submitOnHash: false,
+        timeOut: 10,
+      },
+      {
+        action: 'talk',
+        text: 'Da uno a cinque, quanto sei in grado di lavarti e vestirti? Rispondi con il tastierino.',
+        voiceName: 'Carla',
+        bargeIn: true,
+      },
+      {
+        action: 'input',
+        submitOnHash: false,
+        timeOut: 10,
+      },
+      {
+        action: 'talk',
+        text: 'Abbiamo finito. Grazie e arrivederci ' + customerName,
+        voiceName: 'Carla',
+        bargeIn: false,
       },
     ];
 
