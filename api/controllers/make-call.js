@@ -62,7 +62,7 @@ module.exports = {
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: timeoutSeconds,
+        // timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
@@ -73,7 +73,7 @@ module.exports = {
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: timeoutSeconds,
+        // timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
@@ -84,7 +84,7 @@ module.exports = {
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: timeoutSeconds,
+        // timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
@@ -95,18 +95,18 @@ module.exports = {
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: timeoutSeconds,
+        // timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
-        text: 'Grazie, abbiamo quasi finito. uno a cinque, quanto provi dolore o fastidio?',
+        text: 'Grazie, abbiamo quasi finito. Da uno a cinque, quanto provi dolore o fastidio?',
         voiceName: 'Carla',
         bargeIn: true,
       },
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: timeoutSeconds,
+        // timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
@@ -117,7 +117,7 @@ module.exports = {
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: timeoutSeconds,
+        // timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
