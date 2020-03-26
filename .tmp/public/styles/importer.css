@@ -1120,6 +1120,14 @@ body {
     font-size: 22px;
   }
 }
+#startsurvey .smalltext {
+  line-height: 24px;
+  margin-bottom: 2px;
+  font-size: 16px;
+}
+#startsurvey #containerinfo {
+  margin-bottom: 20px;
+}
 body {
   font-family: Merriweather, serif;
   background-color: #162363;
