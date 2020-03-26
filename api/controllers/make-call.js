@@ -28,15 +28,18 @@ module.exports = {
       privateKey: 'assets/privatekey.txt',
     });
 
-    var greeting = "buongiorno"
-    var customerName = "Cesare"
+    var greeting = "buongiorno";
+    var customerName = "Cesare";
 
-    if (now().before('13:00:00')) {
-      greeting = "buongiorno"
-    } else if (now().before('16:00:00')) {
-      greeting = "buon pomeriggio"
+    var date = new Date();
+    var currentHour = date.getHours();
+
+    if (currentHour < 13) {
+      greeting = "buongiorno";
+    } else if (currentHour < 16) {
+      greeting = "buon pomeriggio";
     } else {
-      greeting = "buonasera"
+      greeting = "buonasera";
     }
 
     var greetingPhrase = greeting + ' ' + customerName + '. ' + 'Grazie per aver accettato l\'invito. Vorrei informarti che la conversazione verrà registrata per migliorare il servizio. Premi zero per iniziare.';
@@ -55,7 +58,7 @@ module.exports = {
       },
       {
         action: 'talk',
-        text: 'Da uno a cinque, quanto sei in grado di camminare? Rispondi con il tastierino.',
+        text: 'Da uno a cinque, quanto sei in grado di camminare?',
         voiceName: 'Carla',
         bargeIn: true
       },
@@ -66,7 +69,62 @@ module.exports = {
       },
       {
         action: 'talk',
-        text: 'Da uno a cinque, quanto sei in grado di lavarti e vestirti? Rispondi con il tastierino.',
+        text: 'Molte grazie. Da uno a cinque, quanto sei in grado di lavarti e vestirti?',
+        voiceName: 'Carla',
+        bargeIn: true,
+      },
+      {
+        action: 'input',
+        submitOnHash: false,
+        timeOut: 10,
+      },
+      {
+        action: 'talk',
+        text: 'Okay, Da uno a cinque, quanto riesci a svolgere attività abituali?',
+        voiceName: 'Carla',
+        bargeIn: true,
+      },
+      {
+        action: 'input',
+        submitOnHash: false,
+        timeOut: 10,
+      },
+      {
+        action: 'talk',
+        text: 'Grazie, abbiamo quasi finito. uno a cinque, quanto prov?',
+        voiceName: 'Carla',
+        bargeIn: true,
+      },
+      {
+        action: 'input',
+        submitOnHash: false,
+        timeOut: 10,
+      },
+      {
+        action: 'talk',
+        text: 'Grazie, abbiamo quasi finito. uno a cinque, quanto provi dolore o fastidio?',
+        voiceName: 'Carla',
+        bargeIn: true,
+      },
+      {
+        action: 'input',
+        submitOnHash: false,
+        timeOut: 10,
+      },
+      {
+        action: 'talk',
+        text: 'Grazie, abbiamo quasi finito. uno a cinque, quanto provi dolore o fastidio?',
+        voiceName: 'Carla',
+        bargeIn: true,
+      },
+      {
+        action: 'input',
+        submitOnHash: false,
+        timeOut: 10,
+      },
+      {
+        action: 'talk',
+        text: 'Questa è l\'ultima domanda. Da uno a cinque, soffri di ansia o depressione?',
         voiceName: 'Carla',
         bargeIn: true,
       },
@@ -89,10 +147,12 @@ module.exports = {
         from: { type: 'phone', number: '12017785973' },
         ncco,
       }, function(err, result) {
-      console.log(err || result);
-       console.log('ok made the call');
-       return;
-       // res.send('Ok, made the call.');
+
+        if (err) {
+          return {status: 400, details: err, result: result}
+        }
+
+        return {status: 200, details: 'All good!'};
       });
   }
 
