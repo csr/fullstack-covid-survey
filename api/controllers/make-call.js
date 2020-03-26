@@ -42,19 +42,27 @@ module.exports = {
       greeting = "buonasera";
     }
 
-    var greetingPhrase = greeting + ' ' + customerName + '. ' + 'Grazie per aver accettato l\'invito. Vorrei informarti che la conversazione verrà registrata per migliorare il servizio. Premi zero per iniziare.';
+    var timeoutSeconds = 1
+
+    var greetingPhrase = greeting + ' ' + customerName + '. ' + 'Grazie per aver risposto alla chiamata, vorrei informarti che la conversazione verrà registrata per migliorare il servizio.';
 
     const ncco = [
       {
         action: 'talk',
         voiceName: 'Carla',
         text: greetingPhrase,
+        bargeIn: false
+      },
+      {
+        action: 'talk',
+        voiceName: 'Carla',
+        text: 'Premi zero per iniziare il questionario.',
         bargeIn: true
       },
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: 10,
+        timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
@@ -65,7 +73,7 @@ module.exports = {
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: 10,
+        timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
@@ -76,29 +84,18 @@ module.exports = {
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: 10,
+        timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
-        text: 'Okay, Da uno a cinque, quanto riesci a svolgere attività abituali?',
+        text: 'Risposta salvata. Da uno a cinque, quanto riesci a svolgere attività abituali?',
         voiceName: 'Carla',
         bargeIn: true,
       },
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: 10,
-      },
-      {
-        action: 'talk',
-        text: 'Grazie, abbiamo quasi finito. uno a cinque, quanto prov?',
-        voiceName: 'Carla',
-        bargeIn: true,
-      },
-      {
-        action: 'input',
-        submitOnHash: false,
-        timeOut: 10,
+        timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
@@ -109,18 +106,7 @@ module.exports = {
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: 10,
-      },
-      {
-        action: 'talk',
-        text: 'Grazie, abbiamo quasi finito. uno a cinque, quanto provi dolore o fastidio?',
-        voiceName: 'Carla',
-        bargeIn: true,
-      },
-      {
-        action: 'input',
-        submitOnHash: false,
-        timeOut: 10,
+        timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
@@ -131,7 +117,7 @@ module.exports = {
       {
         action: 'input',
         submitOnHash: false,
-        timeOut: 10,
+        timeOut: timeoutSeconds,
       },
       {
         action: 'talk',
