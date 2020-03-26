@@ -135,6 +135,8 @@ module.exports = {
       },
     ];
 
+    return ncco;
+
     nexmo.calls.create(
       {
         to: [{ type: 'phone', number: '393703173039' }],

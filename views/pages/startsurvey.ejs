@@ -1,7 +1,20 @@
 <div id="startsurvey" v-cloak>
+	<div class="widecontainer">
+		<div id="textContainer">
+			<h1>Inizia il questionario</h1>
+			<p>5 domande sul tuo stato di salute generale.</p>
+		</div>
+		<div id="widecontainer-secondary">
+			<h3>Chiamata gratuita</h3>
+			<div id="customform">
+				<label for="fullName">Nome e cognome</label>
+				<input id="fullName" name="fullName" type="text" placeholder="Giovanni Rossi" required="" value="">
 
-  <h1>TODO: Implement this page.</h1>
-  <p>(See also <em>assets/styles/pages/startsurvey.less</em>, <em>assets/js/pages/startsurvey.page.js</em>, and <em>api/controllers/view-startsurvey.js</em>.)</p>
-
+				<label for="phone">Telefono</label>
+				<input id="fullName" name="fullName" type="text" placeholder="123456789" required="" value="">
+				<input type="submit" id="custombutton" class="large button dark" value="Conferma chiamata">
+			</div>
+		</div>
+	</div>
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
