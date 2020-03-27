@@ -10,13 +10,14 @@
 				<p class="smalltext">📆Adesso</p>
 				<p class="smalltext">👤Con un Assistente virtuale</p>
 			</div>
-			<form id="customform" action="/">
-				<label for="fullName">Nome e cognome</label>
-				<input id="fullName" name="fullName" type="text" placeholder="Giovanni Rossi" required="" value="">
+			<form id="customform" action="/api/v1/call" method="POST">
+				<label for="customerName">Nome e cognome</label>
+				<input id="customerName" name="customerName" type="text" placeholder="Giovanni Rossi" required="" value="">
 
-				<label for="phone">Telefono</label>
-				<input id="phone" name="phone" type="tel" placeholder="123456789" required="" value="" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+				<label for="phoneNumber">Telefono</label>
+				<input id="phoneNumber" name="phoneNumber" type="tel" placeholder="123456789" required="" value="">
 				<input type="submit" id="custombutton" class="large button dark" value="Chiamami adesso">
+				<input type="hidden" name="_csrf" value="<%= _csrf %>" />
 			</div>
 		</div>
 	</div>

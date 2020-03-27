@@ -8,7 +8,14 @@ module.exports = {
 
 
   inputs: {
-
+    phoneNumber: {
+      type: 'string',
+      required: true,
+    },
+    customerName: {
+      type: 'string',
+      required: true,
+    },
   },
 
 
@@ -29,7 +36,6 @@ module.exports = {
     });
 
     var greeting = "buongiorno";
-    var customerName = "Cesare";
 
     var date = new Date();
     var currentHour = date.getHours();
@@ -44,7 +50,7 @@ module.exports = {
 
     var timeoutSeconds = 1; // default is 1
     var voiceLevel = 0.8; // default is 0.5
-    var greetingPhrase = greeting + ' ' + customerName + '. ' + 'Grazie per aver risposto alla chiamata, vorrei informarti che la conversazione verrà registrata per migliorare il servizio.';
+    var greetingPhrase = greeting + ' ' + inputs.customerName + '. ' + 'Grazie per aver risposto alla chiamata, vorrei informarti che la conversazione verrà registrata per migliorare il servizio.';
 
     const ncco = [
       {
@@ -128,18 +134,16 @@ module.exports = {
       },
       {
         action: 'talk',
-        text: 'Abbiamo finito. Grazie e arrivederci ' + customerName,
+        text: 'Abbiamo finito. Grazie e arrivederci ' + inputs.customerName,
         voiceName: 'Carla',
         bargeIn: false,
         level: voiceLevel,
       },
     ];
 
-    return ncco;
-
     nexmo.calls.create(
       {
-        to: [{ type: 'phone', number: '393703173039' }],
+        to: [{ type: 'phone', number: inputs.phoneNumber }],
         from: { type: 'phone', number: '12017785973' },
         ncco,
       }, function(err, result) {

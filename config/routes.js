@@ -33,9 +33,8 @@ module.exports.routes = {
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
-  'GET /call':               { action: 'make-call' },
-
-  'POST /api/v1/make-call':  { action: 'make-call' },
+  'POST /api/v1/call':       { action: 'make-call' },
+  'GET /csrfToken':          { action: 'security/grant-csrf-token' },
 
   'GET /startsurvey':        { action: 'view-startsurvey' },
 
