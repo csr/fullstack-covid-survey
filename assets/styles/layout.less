@@ -17,16 +17,38 @@ html, body {
   padding-bottom: @footer-height;
 
   header {
-    .logo {
-      height: 20px;
-    }
-    a {
+    a:not(.btn) {
       cursor: pointer;
+      border-bottom: 3px solid transparent;
+      &.nav-item {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-right: 20px;
+        &:hover {
+          border-bottom-color: @border-lt-gray;
+        }
+        &.current {
+          border-bottom-color: @accent-teal;
+        }
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+      &.dropdown-toggle {
+        &:hover {
+          color: @accent-teal!important;
+        }
+      }
     }
     .dropdown-menu.account-menu {
       left: auto;
       right: 0px;
     }
+  }
+
+  // App-wide styles for our ajax buttons
+  .ajax-button {
+    .ajax-button();
   }
 }
 
@@ -40,15 +62,6 @@ html, body {
   .xs-only {
     display: none;
   }
-}
-
-body.detected-mobile {
-  // Above and beyond the media queries below, this selector (which relies on
-  // `parasails` automatically attaching this class, if appropriate) contains
-  // styles intended to be activated specifically when loaded from a recognized
-  // mobile device, regardless of viewport dimensions.  This includes tablet
-  // devices (like the iPad) as well as handset devices (like the iPhone).
-  // …
 }
 
 @media (max-width: 800px) {

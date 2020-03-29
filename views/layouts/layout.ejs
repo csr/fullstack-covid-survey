@@ -36,9 +36,11 @@
         (https://sailsjs.com/docs/concepts/assets/task-automation)
     */ %>
 
-    <% /* Auto-injected «link» tags: */ %>
+    <%/* Google Font */%>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,900" rel="stylesheet">
 
+    <% /* Auto-injected «link» tags: */ %>
     <!--STYLES-->
     <link rel="stylesheet" href="/dependencies/bootstrap-4/bootstrap-4.css">
     <link rel="stylesheet" href="/dependencies/fontawesome.css">
@@ -48,6 +50,18 @@
   </head>
   <body>
     <div id="page-wrap">
+      <header id="page-header" class="navbar navbar-expand-sm flex-column flex-md-row justify-content-between">
+        <a class="navbar-brand mr-0" href="/"><img height="30" alt="Website logo" src="/images/my-logo.png"/></a>
+        <div class="navbar-nav flex-row">
+          <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'map' ? 'current' : ''%>"
+              href="/map">Map</a>
+          <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'faq' ? 'current' : ''%>"
+            href="/faq">FAQ</a>
+          <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'contact' ? 'current' : ''%>"
+            href="/contact">Help</a>
+        </div>
+      </header>
+
       <!-- Alert if email has not been confirmed -->
       <% if(me&&me.emailChangeCandidate) { %>
       <div class="container-fluid">
@@ -103,7 +117,7 @@
     <script src="/js/cloud.setup.js"></script>
     <script src="/js/components/ajax-button.component.js"></script>
     <script src="/js/components/ajax-form.component.js"></script>
-    <script src="/js/components/js-timestamp.component.js"></script>
+    <script src="/js/components/datepicker.component.js"></script>
     <script src="/js/components/modal.component.js"></script>
     <script src="/js/utilities/open-stripe-checkout.js"></script>
     <script src="/js/pages/498.page.js"></script>

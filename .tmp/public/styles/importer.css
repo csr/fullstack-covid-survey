@@ -46,8 +46,8 @@ p small > a:not(.btn),
 li small > a:not(.btn),
 blockquote small > a:not(.btn),
 label small > a:not(.btn) {
-  color: #14acc2;
-  border-bottom: 1px solid #000;
+  color: #28AFB0;
+  border-bottom: 1px solid #333;
 }
 h1 > a:not(.btn):hover,
 h2 > a:not(.btn):hover,
@@ -70,7 +70,7 @@ li small > a:not(.btn):hover,
 blockquote small > a:not(.btn):hover,
 label small > a:not(.btn):hover {
   text-decoration: none;
-  color: #000;
+  color: #333;
 }
 blockquote {
   border-left: 3px solid #e4e4e4;
@@ -151,7 +151,7 @@ blockquote {
 .modal .modal-content .modal-header .modal-intro {
   margin-left: auto;
   margin-right: auto;
-  color: #999999;
+  color: #cccccc;
   margin-bottom: 20px;
 }
 .modal .modal-content .modal-header hr {
@@ -161,7 +161,7 @@ blockquote {
   margin-bottom: 10px;
   width: 100px;
   height: 2px;
-  border-top: 2px solid #14acc2;
+  border-top: 2px solid #28AFB0;
 }
 .modal .modal-content .modal-body {
   padding-top: 10px;
@@ -211,15 +211,144 @@ body {
   position: relative;
   padding-bottom: 40px;
 }
-#page-wrap header .logo {
-  height: 20px;
-}
-#page-wrap header a {
+#page-wrap header a:not(.btn) {
   cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+#page-wrap header a:not(.btn).nav-item {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-right: 20px;
+}
+#page-wrap header a:not(.btn).nav-item:hover {
+  border-bottom-color: #e4e4e4;
+}
+#page-wrap header a:not(.btn).nav-item.current {
+  border-bottom-color: #28AFB0;
+}
+#page-wrap header a:not(.btn).nav-item:last-child {
+  margin-right: 0px;
+}
+#page-wrap header a:not(.btn).dropdown-toggle:hover {
+  color: #28AFB0 !important;
 }
 #page-wrap header .dropdown-menu.account-menu {
   left: auto;
   right: 0px;
+}
+#page-wrap .ajax-button .button-loader,
+#page-wrap .ajax-button .button-loading {
+  display: inline-block;
+  margin: auto;
+  display: none;
+}
+#page-wrap .ajax-button .button-loader .loading-dot,
+#page-wrap .ajax-button .button-loading .loading-dot {
+  border-radius: 50%;
+  background-color: #fff;
+  float: left;
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  margin: 5px;
+  -moz-animation-name: fade-in;
+  -webkit-animation-name: fade-in;
+  -ms-animation-name: fade-in;
+  -o-animation-name: fade-in;
+  animation-name: fade-in;
+  -moz-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -moz-animation-direction: linear;
+  -webkit-animation-direction: linear;
+  -ms-animation-direction: linear;
+  -o-animation-direction: linear;
+  animation-direction: linear;
+}
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#page-wrap .ajax-button .button-loader .loading-dot.dot1,
+#page-wrap .ajax-button .button-loading .loading-dot.dot1 {
+  -moz-animation-delay: 0.25s;
+  -webkit-animation-delay: 0.25s;
+  -ms-animation-delay: 0.25s;
+  -o-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+#page-wrap .ajax-button .button-loader .loading-dot.dot2,
+#page-wrap .ajax-button .button-loading .loading-dot.dot2 {
+  -moz-animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+  -ms-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+#page-wrap .ajax-button .button-loader .loading-dot.dot3,
+#page-wrap .ajax-button .button-loading .loading-dot.dot3 {
+  -moz-animation-delay: 0.75s;
+  -webkit-animation-delay: 0.75s;
+  -ms-animation-delay: 0.75s;
+  -o-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
+#page-wrap .ajax-button .button-loader .loading-dot.dot4,
+#page-wrap .ajax-button .button-loading .loading-dot.dot4 {
+  -moz-animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  -ms-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+}
+#page-wrap .ajax-button .button-loader .loading-dot,
+#page-wrap .ajax-button .button-loading .loading-dot {
+  width: 7px;
+  height: 7px;
+  margin: 0px 3px;
+  display: inline;
+}
+#page-wrap .ajax-button.syncing .button-loader,
+#page-wrap .ajax-button.syncing .button-loading {
+  display: inline-block;
+}
+#page-wrap .ajax-button.syncing .button-text {
+  display: none;
 }
 #page-footer {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -387,7 +516,7 @@ body {
 #homepage .hero {
   padding-top: 100px;
   padding-bottom: 25px;
-  color: #14acc2;
+  color: #28AFB0;
   position: relative;
 }
 #homepage .hero .hero-image {
@@ -793,7 +922,7 @@ body {
   padding-bottom: 100px;
 }
 #homepage .about-wrapper .features .feature .icon {
-  background-color: #14acc2;
+  background-color: #28AFB0;
   color: #fff;
   width: 75px;
   height: 75px;
@@ -938,12 +1067,12 @@ body {
   width: 150px;
 }
 #account-overview .remove-button {
-  color: #14acc2;
+  color: #28AFB0;
   text-decoration: underline;
   cursor: pointer;
 }
 #account-overview .remove-button:hover {
-  color: #000;
+  color: #333;
 }
 #edit-password {
   padding-top: 75px;
@@ -1052,54 +1181,4 @@ body {
   [id='498'] .mobile-spacer {
     display: inline;
   }
-}
-#map {
-  height: 100vh;
-  position: relative;
-}
-/* Customize the label (the container) */
-#checkboxdiv {
-  position: absolute;
-  margin-top: 23px;
-  height: 40px;
-  z-index: 10000;
-  background-color: white;
-  margin-top: 24px;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-flex !important;
-  align-items: center !important;
-  border-radius: 8px !important;
-  -webkit-box-pack: center !important;
-  -webkit-box-align: center !important;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  display: inline-table;
-  vertical-align: middle;
-  display: block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-#checkboxdiv:hover {
-  background-color: whitesmoke;
-}
-#customlabel {
-  margin-bottom: 0px;
-}
-#mapid {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
-#page-footer {
-  visibility: hidden;
 }

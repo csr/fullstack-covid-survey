@@ -1,19 +1,29 @@
 /**
- * <ajax-button>
+ * <datepicker>
  * -----------------------------------------------------------------------------
- * A button with a built-in loading spinner.
+ * A wrapper for the jQuery UI datepicker
  *
  * @type {Component}
+ *
+ * @event input   [emitted when the value changes]
  * -----------------------------------------------------------------------------
  */
 
-parasails.registerComponent('ajaxButton', {
+parasails.registerComponent('datepicker', {
 
   //  ╔═╗╦═╗╔═╗╔═╗╔═╗
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗
   //  ╩  ╩╚═╚═╝╩  ╚═╝
   props: [
-    'syncing'
+    // The v-model
+    'value',
+    // Flag telling us whether the datepicker should be a popup (if truthy)
+    // or always visible (if falsy)
+    'popup',
+    // The following are only relevant if using the popup style of datepicker:
+    'invalid',
+    'validationErrorMessage',
+    'placeholderText'
   ],
 
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -21,7 +31,7 @@ parasails.registerComponent('ajaxButton', {
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: function (){
     return {
-
+      //...
     };
   },
 
@@ -29,31 +39,23 @@ parasails.registerComponent('ajaxButton', {
   //  ╠═╣ ║ ║║║║
   //  ╩ ╩ ╩ ╩ ╩╩═╝
   template: `
-  <button type="submit" class="btn ajax-button" :class="[syncing ? 'syncing' : '']">
-    <span class="button-text" v-if="!syncing"><slot name="default">Submit</slot></span>
-    <span class="button-loader clearfix" v-if="syncing">
-      <slot name="syncing-state">
-        <div class="loading-dot dot1"></div>
-        <div class="loading-dot dot2"></div>
-        <div class="loading-dot dot3"></div>
-        <div class="loading-dot dot4"></div>
-      </slot>
-    </span>
-  </button>
+  <div class="datepicker-wrapper">
+    <div datepicker-el v-if="!popup"></div>
+    <input class="form-control" v-else :value="value" type="text" :class="[invalid ? 'is-invalid' : '']"  :placeholder="placeholderText || 'Choose return date'" datepicker-el/>
+    <div class="invalid-feedback" v-if="invalid">{{validationErrorMessage}}</div>
+  </div>
   `,
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
-  beforeMount: function() {
-
-  },
-
   mounted: function (){
 
-  },
-
-  beforeDestroy: function() {
+    this.$find('[datepicker-el]').datepicker({
+      onSelect: (dateText, datepicker)=> {//eslint-disable-line no-unused-vars
+        this.$emit('input', dateText);
+      }
+    });
 
   },
 
@@ -61,6 +63,10 @@ parasails.registerComponent('ajaxButton', {
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
+
+    doParseDate: function() {
+      return $.datepicker.parseDate('mm/dd/yy', this.value);
+    }
 
   }
 
