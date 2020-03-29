@@ -13,7 +13,8 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action: 'view-startsurvey' },
+  'GET /':                   { action: 'view-map' },
+  'GET /survey':             { action: 'view-startsurvey' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /faq':                { action:   'view-faq' },

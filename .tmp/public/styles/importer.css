@@ -1053,124 +1053,53 @@ body {
     display: inline;
   }
 }
-#startsurvey .widecontainer {
+#map {
   height: 100vh;
-  color: #fff;
-  display: flex;
-  flex: 1 1 auto;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 20px;
   position: relative;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
-#startsurvey #textContainer {
-  font-weight: 700;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.6;
-  font-weight: 400;
-}
-#startsurvey h1 {
-  font-size: 60px;
-  line-height: 1.25;
-  font-weight: 700;
-}
-#startsurvey p {
-  font-size: 24px;
-}
-#startsurvey #widecontainer-secondary {
+/* Customize the label (the container) */
+#checkboxdiv {
+  position: absolute;
+  margin-top: 23px;
+  height: 40px;
+  z-index: 10000;
+  background-color: white;
+  margin-top: 24px;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 8px !important;
+  -webkit-box-pack: center !important;
+  -webkit-box-align: center !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  display: inline-table;
+  vertical-align: middle;
   display: block;
-  border-radius: 4px;
-  padding: 35px;
-  flex: 0 0 42.5%;
-  width: 42.5%;
-  background-color: #fedf67;
-  color: #162363;
-  align-items: center;
-  justify-content: center;
-}
-#startsurvey #customform {
-  display: block;
-}
-#startsurvey #custombutton {
-  display: block;
-  margin: 20px auto 0;
-}
-@media (max-width: 700px) {
-  #startsurvey .widecontainer {
-    margin-top: 20px;
-    display: block;
-  }
-  #startsurvey #widecontainer-secondary {
-    display: block;
-    width: 100%;
-    padding: 30px 20px;
-    margin-bottom: 20px;
-    margin-top: 30px;
-  }
-  #startsurvey h1 {
-    font-size: 50px;
-  }
-  #startsurvey p {
-    margin-top: 10px;
-    font-size: 22px;
-  }
-}
-#startsurvey .smalltext {
-  line-height: 24px;
-  margin-bottom: 2px;
-  font-size: 16px;
-}
-#startsurvey #containerinfo {
-  margin-bottom: 20px;
-}
-body {
-  font-family: Merriweather, serif;
-  background-color: #162363;
-}
-.button {
-  color: #162363;
-  background-color: #fedf67;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
-  border-radius: 4px;
-  border: none;
-  padding: 12px 30px;
   cursor: pointer;
-  transition-property: none;
   -webkit-user-select: none;
+  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  white-space: nowrap;
-  line-height: normal;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-.button.large {
-  font-weight: 700;
-  font-size: 18px;
-  padding: 18px 30px;
+#checkboxdiv:hover {
+  background-color: whitesmoke;
 }
-.button.dark {
-  background-color: #162363;
-  color: #fff;
+#customlabel {
+  margin-bottom: 0px;
 }
-#page-wrap {
-  padding-bottom: 0px;
-}
-input[type=text],
-input[type=tel] {
-  height: 46px!important;
-  line-height: 46px;
-  vertical-align: middle;
-  border-radius: 0;
-  margin-bottom: 10px;
+#mapid {
+  height: 100%;
   width: 100%;
-  color: #000;
-  padding: 6px 10px;
-  background-color: #fff;
-  border: 1px solid #d1d1d1;
-  box-shadow: none;
-  box-sizing: border-box;
+  position: absolute;
+}
+#page-footer {
+  visibility: hidden;
 }
