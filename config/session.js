@@ -26,13 +26,13 @@ module.exports.session = {
 
   // collection: 'sessions',
 
-  cookie: { 
-    secure: true
-  },
+  // cookie: { 
+  //   secure: true
+  // },
 
-  http: {
-    trustProxy: true
-  },
+  // http: {
+  //   trustProxy: true
+  // },
 
   /***************************************************************************
   *                                                                          *
