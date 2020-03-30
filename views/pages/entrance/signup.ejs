@@ -2,7 +2,7 @@
   <div class="container" v-if="!cloudSuccess">
     <h1 class="text-center">Create an account</h1>
     <div class="signup-form">
-      <p class="text-center">Let's get started! Becoming a member is free and only takes a few minutes.</p>
+      <p class="text-center">Let's get started! Create an account to track your daily symptoms. You'll be able to use the same credentials in our mobile app.</p>
       <hr/>
       <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
         <div class="form-group">

@@ -11,188 +11,41 @@
 /**
  * Color Variables
  */
-/**
- * This file is for overriding some default bootstrap styles.
- *
- * > NOTE THAT THIS FILE AFFECTS GLOBAL STYLES.
- */
-* {
-  box-sizing: border-box;
-}
-img {
-  display: block;
-}
-.btn,
-[type='button'] {
-  -webkit-appearance: none;
-}
-h1 > a:not(.btn),
-h2 > a:not(.btn),
-h3 > a:not(.btn),
-h4 > a:not(.btn),
-h5 > a:not(.btn),
-h6 > a:not(.btn),
-p > a:not(.btn),
-li > a:not(.btn),
-blockquote > a:not(.btn),
-label > a:not(.btn),
-h1 small > a:not(.btn),
-h2 small > a:not(.btn),
-h3 small > a:not(.btn),
-h4 small > a:not(.btn),
-h5 small > a:not(.btn),
-h6 small > a:not(.btn),
-p small > a:not(.btn),
-li small > a:not(.btn),
-blockquote small > a:not(.btn),
-label small > a:not(.btn) {
+.btn-outline-info {
   color: #28AFB0;
-  border-bottom: 1px solid #333;
+  background-color: transparent;
+  background-image: none;
+  border-color: #28AFB0;
 }
-h1 > a:not(.btn):hover,
-h2 > a:not(.btn):hover,
-h3 > a:not(.btn):hover,
-h4 > a:not(.btn):hover,
-h5 > a:not(.btn):hover,
-h6 > a:not(.btn):hover,
-p > a:not(.btn):hover,
-li > a:not(.btn):hover,
-blockquote > a:not(.btn):hover,
-label > a:not(.btn):hover,
-h1 small > a:not(.btn):hover,
-h2 small > a:not(.btn):hover,
-h3 small > a:not(.btn):hover,
-h4 small > a:not(.btn):hover,
-h5 small > a:not(.btn):hover,
-h6 small > a:not(.btn):hover,
-p small > a:not(.btn):hover,
-li small > a:not(.btn):hover,
-blockquote small > a:not(.btn):hover,
-label small > a:not(.btn):hover {
-  text-decoration: none;
-  color: #333;
+.btn-outline-info:hover {
+  color: white;
+  background-color: #28AFB0;
+  border-color: #28AFB0;
 }
-blockquote {
-  border-left: 3px solid #e4e4e4;
-  padding-left: 20px;
+.btn-info:focus,
+.btn-info.focus {
+  box-shadow: 0 0 0 0.2rem rgba(238, 150, 75, 0.5);
 }
-.modal-backdrop {
-  background-color: #fff;
+.btn-info.disabled,
+.btn-info:disabled {
+  color: white;
+  background-color: #EE964B;
+  border-color: #EE964B;
 }
-.modal-backdrop.show {
-  opacity: 0.95;
+.btn-info:not(:disabled):not(.disabled):active,
+.btn-info:not(:disabled):not(.disabled).active,
+.show > .btn-info.dropdown-toggle {
+  color: white;
+  background-color: #28AFB0;
+  border-color: #28AFB0;
 }
-.modal {
-  -webkit-overflow-scrolling: touch;
+.btn-info:not(:disabled):not(.disabled):active:focus,
+.btn-info:not(:disabled):not(.disabled).active:focus,
+.show > .btn-info.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(238, 150, 75, 0.5);
 }
-.modal .petticoat {
-  position: fixed;
-  width: 100%;
-  height: 75px;
-  z-index: 50;
-  left: 0px;
-  top: 0px;
-  background-color: #fff;
-}
-.modal .modal-dialog {
-  z-index: 100;
-  position: relative;
-  max-width: 700px;
-}
-.modal .modal-content {
-  max-width: 700px;
-  border-radius: 0px;
-  border-color: #fff;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-.modal .modal-content .modal-header {
-  border-bottom: none;
-  display: block;
-  position: relative;
-  text-align: center;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-}
-.modal .modal-content .modal-header .modal-close-button {
-  border-top: none;
-  border-bottom: none;
-  border-left: none;
-  border-right: none;
-  background: transparent;
-  font-family: inherit;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  padding: 6px;
-  position: absolute;
-  right: -5px;
-  top: -5px;
-  background-image: url('/images/icon-close.png');
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.8;
-}
-.modal .modal-content .modal-header .modal-close-button:focus {
-  border-image: none;
-  outline: none;
-}
-.modal .modal-content .modal-header .modal-close-button:hover {
-  opacity: 1;
-}
-.modal .modal-content .modal-header .modal-title {
-  font-weight: 700;
-}
-.modal .modal-content .modal-header .modal-intro {
-  margin-left: auto;
-  margin-right: auto;
-  color: #cccccc;
-  margin-bottom: 20px;
-}
-.modal .modal-content .modal-header hr {
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-  width: 100px;
-  height: 2px;
-  border-top: 2px solid #28AFB0;
-}
-.modal .modal-content .modal-body {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.modal .modal-content .modal-body .section-heading {
-  margin-top: 25px;
-  padding-bottom: 10px;
-  margin-bottom: 25px;
-  border-bottom: 1px solid #e4e4e4;
-}
-.modal .modal-content .modal-footer {
-  padding-top: 25px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  border-top: 1px solid #e4e4e4;
-  margin-top: 10px;
-}
-.modal .modal-content .modal-footer.no-border {
-  border-top: 0px;
-  padding-top: 10px;
-  margin-top: 0px;
-}
-@media screen and (max-width: 600px) {
-  .modal .modal-content .modal-header .modal-close-button {
-    right: -20px;
-    top: -45px;
-  }
+.text-info {
+  color: #28AFB0 !important;
 }
 [v-cloak] {
   display: none;

@@ -23,7 +23,7 @@
   --primary: #28AFB0;
   --secondary: #7B6D8D;
   --success: #77BE69;
-  --info: #EE964B;
+  --info: @brand;
   --warning: #E8E419;
   --danger: #F05D5E;
   --light: #f8f9fa;
