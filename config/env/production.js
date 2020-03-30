@@ -47,7 +47,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
-      url: process.env.MONGODB_URI,
+      adapter: 'sails-mysql'
+      url: 'mysql://b1997313e34c7b:965a0172@eu-cdbr-west-02.cleardb.net/heroku_db63eda5d64c381?reconnect=true',
       ssl: true,
     },
   },
