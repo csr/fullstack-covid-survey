@@ -3,7 +3,13 @@ parasails.registerPage('map', {
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
-    //…
+    promptTrackSymptomsModalOpen: true,
+
+    // Syncing/loading state
+    syncing: false,
+
+    // Server error state
+    cloudError: '',
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -35,6 +41,24 @@ parasails.registerPage('map', {
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
-    //…
+    showModal: function() {
+      console.log('Showing modal...');
+      this.promptTrackSymptomsModalOpen = true;
+    },
+
+    closeTrackSymptomsModal: function() {
+      this.promptTrackSymptomsModalOpen = false;
+    },
+
+    handleParsingTrackSymptomsModal: function() {
+      return {
+        id: this.selectedThing.id
+      };
+    },
+
+    submittedTrackSymptomsModal: function() {
+      console.log('ok it worked!');
+      this.$forceUpdate();
+    },
   }
 });

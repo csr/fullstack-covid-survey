@@ -1,10 +1,31 @@
 <div id="map" v-cloak>
-	
-	<div id="checkboxdiv">
-		<label id="customlabel">Search as I move the map
-		</label>
+	<div id="mapcontainer">
+		<div id="checkboxdiv">
+			<label id="customlabel">Search as I move the map
+			</label>
+		</div>
+		<div id="mapid"></div>
 	</div>
-	<div id="mapid"></div>
 
+	<% /* Track Symptoms Modal */%>
+	<modal v-if="promptTrackSymptomsModalOpen" @close="closeTrackSymptomsModal">
+		<ajax-form action="destroyOneThing" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingTrackSymptomsModal" @submitted="submittedTrackSymptomsModal()">
+			<div class="modal-header">
+				<h5 class="modal-title">Help the world fight COVID-19</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span>&times;</span>
+				</button>
+			</div>
+
+			<div class="modal-body">
+				<p>Track your symptoms today. It will only take a couple of minutes.</p>
+			</div>
+
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Show Map</button>
+				<button type="submit" class="btn btn-danger ml-1">Track Symptoms Now</button>
+			</div>
+		</ajax-form>
+	</modal>
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

@@ -1191,7 +1191,7 @@ body {
   position: absolute;
   margin-top: 23px;
   height: 40px;
-  z-index: 10000;
+  z-index: 1003;
   background-color: white;
   margin-top: 24px;
   top: 0px;
