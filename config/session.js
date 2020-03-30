@@ -26,6 +26,14 @@ module.exports.session = {
 
   // collection: 'sessions',
 
+  cookie: { 
+    secure: true
+  },
+
+  http: {
+    trustProxy: true
+  },
+
   /***************************************************************************
   *                                                                          *
   * Customize when built-in session support will be skipped.                 *
