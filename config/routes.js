@@ -14,11 +14,9 @@ module.exports.routes = {
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
 
-  'GET /':                   { action: 'view-homepage-or-redirect' },
-
-  'GET /map':                { action: 'view-map' }, //, locals: {currentSection: 'map'}},
-  'GET /faq':                { action: 'view-faq' }, //, locals: {currentSection: 'faq'}},
-  'GET /contact':            { action: 'view-contact' },//, locals: {currentSection: 'contact'}},
+  'GET /map':                { action: 'view-map', locals: { currentSection: 'map' }},
+  'GET /faq':                { action: 'view-faq', locals: { currentSection: 'faq' }},
+  'GET /contact':            { action: 'view-contact', locals: { currentSection: 'contact' }},
 
   'GET /reports':            { action: 'view-reports' },
 
@@ -50,6 +48,7 @@ module.exports.routes = {
   //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝  └┘   ═╩╝╚═╝╚╩╝╝╚╝╩═╝╚═╝╩ ╩═╩╝╚═╝
   '/terms':                   '/legal/terms',
   '/logout':                  '/api/v1/account/logout',
+  '/':                        '/map',
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗

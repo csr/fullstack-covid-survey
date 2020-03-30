@@ -53,40 +53,12 @@
       <header id="page-header" class="navbar navbar-expand-sm flex-column flex-md-row justify-content-between">
         <a class="navbar-brand mr-0" href="/"><img height="30" alt="Website logo" src="/images/my-logo.png"/></a>
         <div class="navbar-nav flex-row">
-          <!-- LOGGED-IN NAVIGATION -->
-          <% if(me) { %>
-          <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'map' ? 'current' : ''%>"
-              href="/map">Map</a>
-          <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'reports' ? 'current' : ''%>"
-              href="/reports">Reports</a>
-          <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'contact' ? 'current' : ''%>"
-            href="/contact">Help</a>
-          <!-- Only in desktop nav -->
-          <div class="nav-item dropdown d-none d-md-block">
-            <a class="nav-link dropdown-toggle text-dark ml-2 <%= typeof currentSection !== 'undefined' && currentSection === 'contact' ? 'current' : ''%>" id="header-account-menu-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-            <div class="dropdown-menu account-menu" aria-labelledby="header-account-menu-link">
-              <a class="dropdown-item" href="/account">Settings</a>
-              <a class="dropdown-item" href="/logout">Sign out</a>
-            </div>
-          </div>
-          <!-- Only in mobile nav -->
-          <a class="nav-item nav-link text-dark ml-2 mr-2 d-block d-md-none" href="/account">Account</a>
-          <a class="nav-item nav-link text-dark ml-2 mr-2 d-block d-md-none" href="/logout">Sign out</a>
-          <% } else { %>
           <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'map' ? 'current' : ''%>"
               href="/map">Map</a>
           <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'faq' ? 'current' : ''%>"
             href="/faq">FAQ</a>
-          <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'login' ? 'current' : ''%>"
-              href="/login">Log in</a>
-          <!-- Only in desktop nav -->
-          <div class="form-inline d-none ml-2 d-md-block" >
-            <a class="btn btn-outline-info" href="/signup">Sign up</a>
-          </div>
-          <!-- Only in mobile nav -->
-          <a class="nav-item nav-link text-info ml-2 d-block d-md-none" href="/signup">Sign up</a>
-          <% } %>
-
+          <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'contact' ? 'current' : ''%>"
+              href="/contact">Contact</a>
         </div>
       </header>
 
