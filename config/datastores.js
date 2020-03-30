@@ -49,7 +49,7 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
     adapter: 'sails-mongo',
-    url: 'mongodb://fullstackadmin:fullstackadmin111@cluster0-shard-00-00-uiqtm.mongodb.net:27017,cluster0-shard-00-01-uiqtm.mongodb.net:27017,cluster0-shard-00-02-uiqtm.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority',
+    url: 'mongodb://heroku_00mrbl4r:fern5h7qacej7bbtus2r2548vl@ds247047.mlab.com:47047/heroku_00mrbl4r',
 
   },
 

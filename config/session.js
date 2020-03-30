@@ -20,11 +20,11 @@ module.exports.session = {
   ***************************************************************************/
   secret: '76fb8746ccc718c4b14e48c245a20504',
 
-  adapter: 'connect-mongo',
+  // adapter: 'connect-mongo',
 
-  url: 'mongodb://fullstackadmin:fullstackadmin111@cluster0-shard-00-00-uiqtm.mongodb.net:27017,cluster0-shard-00-01-uiqtm.mongodb.net:27017,cluster0-shard-00-02-uiqtm.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority',
+  // url: 'mongodb://fullstackadmin:fullstackadmin111@cluster0-shard-00-00-uiqtm.mongodb.net:27017,cluster0-shard-00-01-uiqtm.mongodb.net:27017,cluster0-shard-00-02-uiqtm.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority',
 
-  collection: 'sessions',
+  // collection: 'sessions',
 
   /***************************************************************************
   *                                                                          *
