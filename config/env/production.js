@@ -147,7 +147,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      allowOrigins: sails.sockets.onlyAllowOrigins
+      allowOrigins: process.env.sails.sockets.onlyAllowOrigins
     },
 
   },
