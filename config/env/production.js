@@ -147,7 +147,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      allowOrigins: process.env.sails.sockets.onlyAllowOrigins
+      allowOrigins: [
+        'https://questionarioapp.herokuapp.com',
+      ]
     },
 
   },
