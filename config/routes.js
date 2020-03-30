@@ -14,9 +14,13 @@ module.exports.routes = {
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
 
-  'GET /map':                { action: 'view-map', locals: {currentSection: 'map'}},
-  'GET /faq':                { action: 'view-faq', locals: {currentSection: 'faq'}},
-  'GET /contact':            { action: 'view-contact', locals: {currentSection: 'contact'}},
+  'GET /':                   { action: 'view-homepage-or-redirect' },
+
+  'GET /map':                { action: 'view-map' }, //, locals: {currentSection: 'map'}},
+  'GET /faq':                { action: 'view-faq' }, //, locals: {currentSection: 'faq'}},
+  'GET /contact':            { action: 'view-contact' },//, locals: {currentSection: 'contact'}},
+
+  'GET /reports':            { action: 'view-reports' },
 
   'GET /survey':             { action: 'view-startsurvey' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
@@ -44,7 +48,6 @@ module.exports.routes = {
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
   //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝  └┘   ═╩╝╚═╝╚╩╝╝╚╝╩═╝╚═╝╩ ╩═╩╝╚═╝
-  '/':                        '/map',
   '/terms':                   '/legal/terms',
   '/logout':                  '/api/v1/account/logout',
 

@@ -47,8 +47,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
-      // adapter: 'sails-mysql',
-      // url: 'mysql://user:password@host:port/database',
+      adapter: 'sails-mongo',
+      url: 'mongodb://admin:Ms2gkxLZXJZqt@kc4@ds159459.mlab.com:59459/heroku_7lbzf8s1',
       //--------------------------------------------------------------------------
       //  /\   To avoid checking it in to version control, you might opt to set
       //  ||   sensitive credentials like `url` using an environment variable.
@@ -70,8 +70,7 @@ module.exports = {
       * https://sailsjs.com/config/datastores                                     *
       *                                                                           *
       ****************************************************************************/
-      // ssl: true,
-
+      ssl: true,
     },
 
   },
@@ -371,10 +370,10 @@ module.exports = {
   ***************************************************************************/
   custom: {
     baseUrl: 'https://questionarioapp.herokuapp.com',
-    internalEmailAddress: 'support@example.com',
+    internalEmailAddress: 'support@cesare.io',
 
-    // mailgunDomain: 'mg.example.com',
-    // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
+    mailgunDomain: 'https://api.mailgun.net/v3/sandboxc826fd94136243f0ade57690f3198e42.mailgun.org',
+    mailgunSecret: 'b6dee18375aa78438c4edf608466ff1f-9dda225e-e882f432',
     // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking them in to version control, you might opt to

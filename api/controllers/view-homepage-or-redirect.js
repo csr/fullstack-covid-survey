@@ -12,7 +12,7 @@ module.exports = {
     success: {
       statusCode: 200,
       description: 'Requesting user is a guest, so show the public landing page.',
-      viewTemplatePath: 'pages/homepage'
+      viewTemplatePath: 'pages/map'
     },
 
     redirect: {
