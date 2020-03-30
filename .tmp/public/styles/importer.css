@@ -11,42 +11,6 @@
 /**
  * Color Variables
  */
-.btn-outline-info {
-  color: #28AFB0;
-  background-color: transparent;
-  background-image: none;
-  border-color: #28AFB0;
-}
-.btn-outline-info:hover {
-  color: white;
-  background-color: #28AFB0;
-  border-color: #28AFB0;
-}
-.btn-info:focus,
-.btn-info.focus {
-  box-shadow: 0 0 0 0.2rem rgba(238, 150, 75, 0.5);
-}
-.btn-info.disabled,
-.btn-info:disabled {
-  color: white;
-  background-color: #EE964B;
-  border-color: #EE964B;
-}
-.btn-info:not(:disabled):not(.disabled):active,
-.btn-info:not(:disabled):not(.disabled).active,
-.show > .btn-info.dropdown-toggle {
-  color: white;
-  background-color: #28AFB0;
-  border-color: #28AFB0;
-}
-.btn-info:not(:disabled):not(.disabled):active:focus,
-.btn-info:not(:disabled):not(.disabled).active:focus,
-.show > .btn-info.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(238, 150, 75, 0.5);
-}
-.text-info {
-  color: #28AFB0 !important;
-}
 [v-cloak] {
   display: none;
 }
