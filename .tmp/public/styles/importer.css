@@ -999,53 +999,19 @@ body {
     display: inline;
   }
 }
-#map {
-  height: 100vh;
-  position: relative;
+#headline {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
-/* Customize the label (the container) */
-#checkboxdiv {
-  position: absolute;
-  margin-top: 23px;
-  height: 40px;
-  z-index: 1003;
-  background-color: white;
-  margin-top: 24px;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-flex !important;
-  align-items: center !important;
-  border-radius: 8px !important;
-  -webkit-box-pack: center !important;
-  -webkit-box-align: center !important;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px, rgba(0, 0, 0, 0.04) 0px 0px 0px 1px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  display: inline-table;
-  vertical-align: middle;
-  display: block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-#checkboxdiv:hover {
-  background-color: whitesmoke;
-}
-#customlabel {
-  margin-bottom: 0px;
+#mapcontainer {
+  margin: 30px;
+  height: 400px;
+  background-color: red;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(171, 171, 171, 0.7) 0px 0px 6px 0px;
 }
 #mapid {
-  height: 100%;
   width: 100%;
-  position: absolute;
-}
-#page-footer {
-  visibility: hidden;
+  height: 100%;
 }

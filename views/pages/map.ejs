@@ -1,31 +1,13 @@
 <div id="map" v-cloak>
-	<div id="mapcontainer">
-<!-- 		<div id="checkboxdiv">
-			<label id="customlabel">Search as I move the map
-			</label>
-		</div>
- -->		<div id="mapid"></div>
+	<div id="headline">
+		<h1>Mappa Sintomi COVID-19</h1>
+		<h3>Aiuta a tracciare l'evoluzione della pandemia.</h3>
 	</div>
 
-	<% /* Track Symptoms Modal */%>
-	<modal v-if="promptTrackSymptomsModalOpen" @close="closeTrackSymptomsModal">
-		<ajax-form action="destroyOneThing" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingTrackSymptomsModal" @submitted="submittedTrackSymptomsModal()">
-			<div class="modal-header">
-				<h5 class="modal-title">Start Symptoms Assessment</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span>&times;</span>
-				</button>
-			</div>
+	<div id="mapcontainer">
+		<div id="mapid"></div>
+	</div>
 
-			<div class="modal-body">
-				<p>You can use this website to track your symptoms over time using the website or our mobile app. Sign up for an account to get started.</p>
-			</div>
 
-			<div class="modal-footer">
-				<button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Sign Up</button>
-				<button type="submit" class="btn btn-danger ml-1">Maybe Later</button>
-			</div>
-		</ajax-form>
-	</modal>
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
