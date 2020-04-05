@@ -8,7 +8,10 @@ module.exports = {
 
 
   inputs: {
-
+    completionDate: {
+      required: true,
+      type: 'number'
+    },
   },
 
 
@@ -20,7 +23,9 @@ module.exports = {
   fn: async function (inputs) {
 
     // All done.
-    return {'hello world!': 200};
+    return {'statusCode': 200, 
+            'completionDate': completionDate,
+          };
 
   }
 
