@@ -71,6 +71,8 @@ var jsFilesToInject = [
   'dependencies/jquery.min.js',
   'dependencies/vue.js',
   'dependencies/vue-router.js',
+  'dependencies/leaflet/*.js',
+  'dependencies/leaflet-heat/*.js',
   'dependencies/**/*.js',
 
   // First amongst the app-level files, bring in cloud configuration
@@ -83,7 +85,7 @@ var jsFilesToInject = [
   // All of the rest of your custom client-side js files will be injected here,
   // in no particular order.  To customize the ordering, add additional items
   // here, _above_ this one.
-  'js/**/*.js'
+  'js/**/*.js',
 ];
 
 
