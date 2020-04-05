@@ -10,7 +10,9 @@ module.exports = {
   inputs: {
     completionDate: {
       required: true,
-      type: 'number'
+      type: 'number',
+      description: 'Date when the survey was filled by the user expressed in seconds since 1970.',
+      example: 1586076089,
     },
   },
 
@@ -24,7 +26,7 @@ module.exports = {
 
     // All done.
     return {'statusCode': 200, 
-            'completionDate': completionDate,
+            'completionDate': inputs.completionDate,
           };
 
   }
