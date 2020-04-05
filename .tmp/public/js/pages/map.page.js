@@ -36,10 +36,16 @@ parasails.registerPage('map', {
     }).addTo(map);
 
 
-    L.marker([51.5, -0.09]).addTo(map)
-        .bindPopup('23/03/2020: Febbre, tosse, diarrea.')
-        .openPopup();
-  console.log('reports:', this.reports);
+
+    function addPinToMap(value, index, array) {
+      L.marker([value.lat, value.long]).addTo(map)
+          .bindPopup(value.completionDate.toString())
+          .openPopup();
+    }
+
+    this.reports.forEach(addPinToMap);
+    console.log('reports:', this.reports);
+
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
