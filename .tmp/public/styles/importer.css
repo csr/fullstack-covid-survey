@@ -26,7 +26,7 @@ body {
   /* lesshint-enable */
   min-height: 100%;
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 0px;
 }
 #page-wrap header a:not(.btn) {
   cursor: pointer;
@@ -169,7 +169,7 @@ body {
 }
 #page-footer {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  height: 40px;
+  height: 0px;
   width: 100%;
   position: absolute;
   left: 0px;
@@ -200,15 +200,9 @@ body {
     display: inline-block;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 600px) {
   #page-wrap {
-    padding-bottom: 85px;
-  }
-  #page-wrap #page-footer {
-    height: 85px;
-  }
-  #page-wrap #page-footer .xs-only {
-    display: block;
+    padding-bottom: 0px;
   }
 }
 /**
@@ -1032,4 +1026,28 @@ body {
   background-color: #ffffff;
   max-width: 1080px;
   margin: 0 auto;
+}
+@media only screen and (max-width: 550px) {
+  h1 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  #mapcontainer {
+    position: absolute;
+    margin: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 60px;
+    height: auto;
+  }
+  #faqcontainer {
+    margin: 30px;
+    display: none;
+  }
+  #headline {
+    display: none;
+  }
 }
