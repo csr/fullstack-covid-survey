@@ -930,6 +930,12 @@ body {
   margin-right: auto;
   text-align: center;
 }
+#contact {
+  padding-bottom: 0px;
+}
+#page-wrap {
+  padding-bottom: 0px;
+}
 [id='404'] {
   padding-top: 75px;
   padding-bottom: 75px;

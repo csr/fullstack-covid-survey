@@ -40,8 +40,7 @@ parasails.registerPage('map', {
 
     function addPinToMap(value, index, array) {
       L.marker([value.lat, value.long]).addTo(map)
-          .bindPopup(value.completionDate.toString())
-          .openPopup();
+          .bindPopup(value.completionDate.toString());
       var latlng = L.latLng(value.lat, value.long, 1);
       heatLayer.addLatLng(latlng);
     }
