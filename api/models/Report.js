@@ -33,6 +33,62 @@ module.exports = {
         description: 'Latitude.',
     },
 
+    feverTemperature: {
+        type: 'number',
+        required: false,
+        example: 38,
+        description: 'Fever temperature in degrees.',
+    },
+
+    sneezing: {
+        type: 'number',
+        required: false,
+        example: 5,
+        description: '1-5.',
+    },
+
+    diarrhea: {
+        type: 'number',
+        required: false,
+        example: 5,
+        description: '1-5.',
+    },
+
+    headache: {
+        type: 'number',
+        required: false,
+        example: 5,
+        description: '1-5.',
+    },
+
+    shortnessBreath: {
+        type: 'number',
+        required: false,
+        example: 5,
+        description: '1-5.',
+    },
+
+    bodyWeakness: {
+        type: 'number',
+        required: false,
+        example: 5,
+        description: '1-5.',
+    },
+
+    soreThroat: {
+        type: 'number',
+        required: false,
+        example: 5,
+        description: '1-5.',
+    },
+
+    cough: {
+        type: 'string',
+        required: false,
+        example: 'wet_cough',
+        description: 'Type of cough: wet_cough, dry_cough, productive_cough.',
+    },
+
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
