@@ -3,6 +3,8 @@ parasails.registerPage('map', {
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
+    reports: [],
+
     promptTrackSymptomsModalOpen: false,
 
     // Syncing/loading state
@@ -18,7 +20,9 @@ parasails.registerPage('map', {
   beforeMount: function() {
     // Attach any initial data from the server.
     _.extend(this, SAILS_LOCALS);
+    this.reports = this._marshalEntries(this.reports);
   },
+
   mounted: async function() {
     console.log("I'm inside mounted!");
 
@@ -35,12 +39,21 @@ parasails.registerPage('map', {
     L.marker([51.5, -0.09]).addTo(map)
         .bindPopup('23/03/2020: Febbre, tosse, diarrea.')
         .openPopup();
+  console.log('reports:', this.reports);
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
+
+    _marshalEntries: function(entries) {
+      // Marshal provided array of data and return the modified version.
+      return _.map(entries, (entry)=>{
+        return entry;
+      });
+    },
+
     closeTrackSymptomsModal: function() {
       this.promptTrackSymptomsModalOpen = false;
     },

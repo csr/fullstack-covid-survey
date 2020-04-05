@@ -17,9 +17,11 @@ module.exports = {
 
 
   fn: async function () {
+    var reports = await Report.find();
 
     // Respond with view.
     return {
+      reports,
       currentSection: 'map'
     };
   }

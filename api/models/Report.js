@@ -19,6 +19,21 @@ module.exports = {
         description: 'Survey completion date expressed in seconds since 1970.',
     },
 
+    lat: {
+        type: 'number',
+        required: true,
+        example: 41.3851,
+        description: 'Latitude.',
+    },
+
+    long: {
+        type: 'number',
+        required: true,
+        example: 2.1734,
+        description: 'Latitude.',
+    },
+
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
