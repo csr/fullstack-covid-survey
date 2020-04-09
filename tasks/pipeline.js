@@ -73,6 +73,7 @@ var jsFilesToInject = [
   'dependencies/vue-router.js',
   'dependencies/leaflet/*.js',
   'dependencies/leaflet-heat/*.js',
+  'dependencies/leaflet-clustering/*.js',
   'dependencies/**/*.js',
 
   // First amongst the app-level files, bring in cloud configuration

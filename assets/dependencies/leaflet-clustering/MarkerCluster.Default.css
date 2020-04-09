@@ -1,0 +1,70 @@
+.marker-cluster-small {
+	background-color: white;
+}
+
+.marker-cluster-small div {
+	background-color: rgba(83, 175, 113, 1);
+}
+
+.marker-cluster-medium {
+	background-color: white;
+}
+
+.marker-cluster-medium div {
+	background-color: #ffb300;
+}
+
+.marker-cluster-large {
+	background-color: white;
+}
+
+.marker-cluster-large div {
+	background-color: dodgerblue;
+}
+
+	/* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small {
+	background-color: rgb(181, 226, 140);
+}
+
+.leaflet-oldie .marker-cluster-small div {
+	background-color: rgb(110, 204, 57);
+}
+
+.leaflet-oldie .marker-cluster-medium {
+	background-color: rgb(241, 211, 87);
+}
+
+.leaflet-oldie .marker-cluster-medium div {
+	background-color: rgb(240, 194, 12);
+}
+
+.leaflet-oldie .marker-cluster-large {
+	background-color: rgb(253, 156, 115);
+}
+
+.leaflet-oldie .marker-cluster-large div {
+	background-color: rgb(241, 128, 23);
+}
+
+.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+}
+
+.marker-cluster div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+
+	text-align: center;
+	border-radius: 15px;
+	font-family: "Varela Round";
+	font-size: 12px;
+	color: white;
+}
+
+.marker-cluster span {
+	line-height: 30px;
+}

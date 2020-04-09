@@ -35,8 +35,10 @@ parasails.registerPage('map', {
         accessToken: 'pk.eyJ1IjoiY2VzYXJlZGVjYWwiLCJhIjoiY2s0aDgydnk3MTFkazNsbjZsc3B0MXo5ZSJ9.d7fi1XCpfi5q9YUEN1xuBg'
     }).addTo(map);
 
+    var layerGroup = L.markerClusterGroup().addTo(map);
+
     var heatLayer = L.heatLayer([
-    ], {radius: 100, gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}}).addTo(map);
+    ], {radius: 100, gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}}).addTo(layerGroup);
 
     function addPinToMap(value, index, array) {
       L.marker([value.lat, value.long]).addTo(map)
