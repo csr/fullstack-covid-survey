@@ -17,7 +17,18 @@
 html,
 body {
   height: 100%;
-  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  max-width: 1080px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+h1 {
+  font-size: 44px;
+  font-weight: 300;
+}
+h3 {
+  font-size: 24px;
+  font-weight: 300;
 }
 #page-wrap {
   height: 100%;
@@ -910,6 +921,11 @@ body {
     word-break: break-all;
   }
 }
+@media only screen and (max-width: 550px) {
+  #faq {
+    padding-top: 30px;
+  }
+}
 #contact {
   padding-top: 75px;
   padding-bottom: 75px;
@@ -935,6 +951,11 @@ body {
 }
 #page-wrap {
   padding-bottom: 0px;
+}
+@media only screen and (max-width: 550px) {
+  #contact {
+    padding-top: 30px;
+  }
 }
 [id='404'] {
   padding-top: 75px;
@@ -999,21 +1020,23 @@ body {
     display: inline;
   }
 }
+#map {
+  margin: 30px;
+}
+#map #formcontainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 #headline {
   text-align: center;
-  font-family: 'Raleway', sans-serif;
   margin: 20px;
 }
 #mapcontainer {
-  margin: 30px;
   height: 500px;
   background-color: red;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: rgba(171, 171, 171, 0.7) 0px 0px 6px 0px;
-}
-#faqcontainer {
-  margin: 30px;
 }
 #mapid {
   width: 100%;
@@ -1028,7 +1051,6 @@ h3 {
   font-weight: 300;
 }
 body {
-  font-family: 'Raleway', sans-serif;
   background-color: #ffffff;
   max-width: 1080px;
   margin: 0 auto;
