@@ -56,6 +56,9 @@ parasails.registerPage('map', {
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
+    myFunction: function() {
+      console.log('Hello world!')
+    },
 
     _marshalEntries: function(entries) {
       // Marshal provided array of data and return the modified version.
