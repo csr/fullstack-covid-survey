@@ -1026,10 +1026,6 @@ h3 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-#headline {
-  text-align: center;
-  margin: 20px;
-}
 #mapcontainer {
   position: absolute;
   margin: 0px;
@@ -1054,9 +1050,6 @@ h3 {
     margin: 30px;
     display: none;
   }
-  #headline {
-    display: none;
-  }
 }
 #textContainer {
   font-weight: 700;
@@ -1065,17 +1058,51 @@ h3 {
   line-height: 1.6;
   font-weight: 400;
 }
-#surveycontainer {
-  margin-top: 30px;
-  display: block;
-  border-radius: 4px;
-  padding: 35px;
-  flex: 0 0 100%;
+#surveybutton {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transform-origin: center center;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #28AFB0;
+  z-index: 1000000;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
+}
+#pathclose {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  fill: white;
   width: 100%;
-  background-color: lightgray;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
+}
+#surveycontainer {
+  position: absolute;
+  z-index: 1000000;
+  bottom: 105px;
+  right: 25px;
+  display: block;
+  border-radius: 8px;
+  padding: 35px;
+  width: 376px;
+  background-color: white;
   color: #41464D;
   align-items: center;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
 }
 #customform {
   display: block;
@@ -1085,17 +1112,6 @@ h3 {
   margin: 20px auto 0;
 }
 @media (max-width: 700px) {
-  .widecontainer {
-    margin-top: 20px;
-    display: block;
-  }
-  #surveycontainer {
-    display: block;
-    width: 100%;
-    padding: 30px 20px;
-    margin-bottom: 20px;
-    margin-top: 30px;
-  }
 }
 .smalltext {
   line-height: 24px;
@@ -1104,30 +1120,6 @@ h3 {
 }
 #containerinfo {
   margin-bottom: 20px;
-}
-.button {
-  color: #162363;
-  background-color: #fedf67;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
-  border-radius: 4px;
-  border: none;
-  padding: 12px 30px;
-  cursor: pointer;
-  transition-property: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  white-space: nowrap;
-  line-height: normal;
-}
-.button.large {
-  font-weight: 700;
-  font-size: 18px;
-  padding: 18px 30px;
-}
-.button.dark {
-  background-color: #162363;
-  color: #fff;
 }
 #page-wrap {
   padding-bottom: 0px;
@@ -1143,7 +1135,6 @@ input[type=tel] {
   color: #000;
   padding: 6px 10px;
   background-color: #fff;
-  border: 1px solid #d1d1d1;
   box-shadow: none;
   box-sizing: border-box;
 }
@@ -1168,7 +1159,7 @@ input[type=tel] {
 #inputspan {
   display: flex;
   background-color: white;
-  margin: 25px 0;
+  margin-top: 25px;
   width: 100%;
   font-size: 18px;
   line-height: 30px;
@@ -1188,7 +1179,7 @@ input[type=tel] {
   height: 55px;
   font-size: 25px;
   vertical-align: middle;
-  background-color: #162363;
+  background-color: #28AFB0;
   border-right: 1px solid #fff;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -1202,7 +1193,4 @@ input[type=tel] {
 }
 #inputspan:hover {
   background-color: #e3e4ec;
-}
-#surveycontainer {
-  display: none;
 }
