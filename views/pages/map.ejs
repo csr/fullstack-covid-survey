@@ -8,9 +8,9 @@
 				<p>{{currentState.subtitle}}</p>
 			</div>
 			<div v-for="input in currentState.inputs">
-				<label id="inputspan" @click="radioclicked">
+				<label id="inputspan">
 					<span id="radioinput">
-						<input type="radio" name="input" required="" value="input">
+						<input type="radio" name="input" required="" value="input" @click="radioclicked" id="radioelement">
 					</span>
 					<span id="labelcontainer">{{input.userFacingLabel}}
 					</span>

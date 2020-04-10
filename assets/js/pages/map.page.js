@@ -12,6 +12,7 @@
 
       states: {
         'anySymptoms': {
+          id: 'anySymptoms',
           title: 'Hai sintomi del COVID-19?',
           subtitle: 'Per esempio febbre, tosse, affanno, dolori muscolari.',
           inputs: {
@@ -26,8 +27,8 @@
           },
         },
         'feverTemperature': {
+          id: 'feverTemperature',  
           title: 'Hai la febbre?',
-          subtitle: 'La febbre è uno dei principali sintomi del COVID-19.',
           inputs: {
             "option1": {
               value: 'yes',
@@ -39,6 +40,145 @@
             }
           },
         },
+        'cough': {
+          id: 'cough',  
+          title: 'Hai la tosse?',
+          inputs: {
+            "option1": {
+              value: 'yes',
+              userFacingLabel: 'Sì, ho la tosse',
+            },
+            "option2": {
+              value: 'no',
+              userFacingLabel: 'No, non ho tosse',
+            }
+          },
+        },
+        'shortnessBreath': {
+          id: 'shortnessBreath',  
+          title: 'Hai difficoltà respiratorie?',
+          subtitle: 'Per esempio affanno, fiato corto.',
+          inputs: {
+            "option1": {
+              value: '5',
+              userFacingLabel: 'Sì, severe',
+            },
+            "option2": {
+              value: '3',
+              userFacingLabel: 'Sì, lievi',
+            },
+            "option3": {
+              value: '0',
+              userFacingLabel: 'No, nessuna',
+            }
+          },
+        },
+        'bodyWeakness': {
+          id: 'bodyWeakness',  
+          title: 'Provi affaticamento o debolezza?',
+          inputs: {
+            "option1": {
+              value: '5',
+              userFacingLabel: 'Sì, molto',
+            },
+            "option2": {
+              value: '3',
+              userFacingLabel: 'Sì, un po\'',
+            },
+            "option3": {
+              value: '0',
+              userFacingLabel: 'No',
+            }
+          },
+        },
+        'soreThroat': {
+          id: 'soreThroat',  
+          title: 'Hai mal di gola?',
+          inputs: {
+            "option1": {
+              value: '5',
+              userFacingLabel: 'Sì, molto',
+            },
+            "option2": {
+              value: '3',
+              userFacingLabel: 'Sì, un po\'',
+            },
+            "option3": {
+              value: '0',
+              userFacingLabel: 'No',
+            }
+          },
+        },
+        'headache': {
+          id: 'headache',  
+          title: 'Hai mal di testa?',
+          inputs: {
+            "option1": {
+              value: '5',
+              userFacingLabel: 'Sì, spesso',
+            },
+            "option2": {
+              value: '3',
+              userFacingLabel: 'Sì, un po\'',
+            },
+            "option3": {
+              value: '0',
+              userFacingLabel: 'No',
+            }
+          },
+        },
+        'sneezing': {
+          id: 'sneezing',  
+          title: 'Ti capita di starnutire?',
+          inputs: {
+            "option1": {
+              value: '5',
+              userFacingLabel: 'Sì, spesso',
+            },
+            "option2": {
+              value: '3',
+              userFacingLabel: 'Sì, un po\'',
+            },
+            "option3": {
+              value: '0',
+              userFacingLabel: 'No',
+            }
+          },
+        },
+        'diarrhea': {
+          id: 'diarrhea',  
+          title: 'Hai disturbi di diarrhea?',
+          inputs: {
+            "option1": {
+              value: '5',
+              userFacingLabel: 'Sì, spesso',
+            },
+            "option2": {
+              value: '3',
+              userFacingLabel: 'Sì, un po\'',
+            },
+            "option3": {
+              value: '0',
+              userFacingLabel: 'No',
+            }
+          },
+        },
+        'thankyou': {
+          id: 'thankyou',  
+          title: 'Grazie',
+          subtitle: 'Posso condividere la tua posizione approssimativa? Verrà mostrata su una mappa che permette alla collettività di seguire l\'evolversi della pandemia.',
+          inputs: {
+            "option1": {
+              value: '5',
+              userFacingLabel: 'Sì, localizzami',
+            },
+            "option2": {
+              value: '3',
+              userFacingLabel: 'Preferisco di no',
+            },
+          },
+        },
+
       },
 
       formAnswers: {
@@ -88,7 +228,7 @@
       }
 
       this.reports.forEach(addPinToMap);
-      console.log('reports:', this.reports);
+      console.log('Showing the following reports on map:', this.reports);
     },
 
     //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
@@ -106,7 +246,7 @@
           // Remove chat icon
           $('#chaticon').addClass('buttonHideIconAnimation');
 
-          this._refreshState("anySymptoms");
+          this._refreshState('anySymptoms');
 
         } else {
           console.log('Ok, hiding survey.')
@@ -120,7 +260,7 @@
 
       _refreshState: function(contextKey) {
         this.currentState = this.states[contextKey];
-        console.log('Ok, setting new state:', this.currentState);
+        console.log('Ok, setting new state with id:', this.currentState.id);
       },
 
       _marshalEntries: function(entries) {
@@ -147,7 +287,29 @@
         var answer = event.toElement.value;
         console.log('context: ', context, ', answer: ', answer);
 
-        this._refreshState('feverTemperature');
+        if (this.currentState.id == 'anySymptoms') {
+          this._refreshState('feverTemperature');
+        } else if (this.currentState.id == 'feverTemperature') {
+          this._refreshState('cough');
+        } else if (this.currentState.id == 'cough') {
+          this._refreshState('shortnessBreath');
+        } else if (this.currentState.id == 'shortnessBreath') {
+          this._refreshState('bodyWeakness');
+        } else if (this.currentState.id == 'bodyWeakness') {
+          this._refreshState('soreThroat');
+        } else if (this.currentState.id == 'soreThroat') {
+          this._refreshState('headache');
+        } else if (this.currentState.id == 'headache') {
+          this._refreshState('sneezing');
+        } else if (this.currentState.id == 'sneezing') {
+          this._refreshState('diarrhea');
+        } else if (this.currentState.id == 'diarrhea') {
+          this._refreshState('thankyou');
+        }
+
+        document.getElementById("radioelement").checked = false;
+        document.getElementById("radioelement").active = false;
+
       },
     }
   });
