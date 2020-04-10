@@ -3,31 +3,31 @@
 		<div id="mapid"></div>
 	</div>
 
-	<div id="surveycontainer">
+	<div v-if="surveyContainerOpen" id="surveycontainer">
 		<div id="containerinfo">
 			<h3>Hai sintomi del COVID-19?</h3>
 			<p>Per esempio febbre, tosse, affanno, dolori muscolari.</p>
 
 		</div>
 		<form id="customform" action="/api/v1/call" method="POST">
-			<label id="inputspan">
+			<label id="inputspan" @click="radioclicked">
 				<span id="radioinput">
-					<input type="radio" name="timeSlot" required="" value="2020-04-09T21:00:00.000Z">
+					<input type="radio" name="symptoms" required="" value="yes">
 				</span>
 				<span id="labelcontainer">Sì, ho sintomi
 				</span>
 			</label>
 
-			<label id="inputspan">
+			<label id="inputspan" @click="radioclicked">
 				<span id="radioinput">
-					<input type="radio" name="timeSlot" required="" value="2020-04-09T21:00:00.000Z">
+					<input type="radio" name="symptoms" required="" value="no">
 				</span>
 				<span id="labelcontainer">No, ho sintomi
 				</span>
 			</label>
 		</form>
 	</div>
-	<div id="surveybutton" @click="myFunction()">
+	<div id="surveybutton" @click="clickOpenSurveyButton()">
 		<div id="crossicon" class="custompath buttonHideIconAnimation">
 			<svg focusable="false" aria-hidden="true" width="14" height="14">
 				<path d="M13.978 12.637l-1.341 1.341L6.989 8.33l-5.648 5.648L0 12.637l5.648-5.648L0 1.341 1.341 0l5.648 5.648L12.637 0l1.341 1.341L8.33 6.989l5.648 5.648z" fill-rule="evenodd">

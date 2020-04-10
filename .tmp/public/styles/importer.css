@@ -1019,13 +1019,6 @@ h3 {
     display: inline;
   }
 }
-#map {
-  margin: 30px;
-}
-#map #formcontainer {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 #mapcontainer {
   position: absolute;
   margin: 0px;
@@ -1091,9 +1084,8 @@ h3 {
   align-items: center;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
-  display: none;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 550px) {
   #surveycontainer {
     width: 90%;
     right: 10px;
