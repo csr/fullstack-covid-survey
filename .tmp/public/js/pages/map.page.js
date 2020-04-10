@@ -163,8 +163,8 @@
             }
           },
         },
-        'thankyou': {
-          id: 'thankyou',  
+        'location': {
+          id: 'location',  
           title: 'Grazie',
           subtitle: 'Posso condividere la tua posizione approssimativa? Verrà mostrata su una mappa che permette alla collettività di seguire l\'evolversi della pandemia.',
           inputs: {
@@ -237,7 +237,6 @@
     methods: {
       clickOpenSurveyButton: function(event) {
         var x = document.getElementById("surveycontainer");
-        
         if (!this.surveyContainerOpen) {
           console.log('Ok, showing survey.')
           this.surveyContainerOpen = true;
@@ -304,12 +303,10 @@
         } else if (this.currentState.id == 'sneezing') {
           this._refreshState('diarrhea');
         } else if (this.currentState.id == 'diarrhea') {
-          this._refreshState('thankyou');
+          this._refreshState('location');
         }
 
-        document.getElementById("radioelement").checked = false;
-        document.getElementById("radioelement").active = false;
-
+        $(".radioelement").prop('checked', false); 
       },
     }
   });
