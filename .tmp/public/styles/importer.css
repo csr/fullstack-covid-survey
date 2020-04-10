@@ -1093,6 +1093,18 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
   display: none;
 }
+@media only screen and (max-width: 600px) {
+  #surveycontainer {
+    width: 90%;
+    right: 10px;
+    bottom: 110px;
+  }
+  #surveybutton {
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+  }
+}
 #customform {
   display: block;
 }
