@@ -1180,11 +1180,6 @@ input[type=tel] {
 #inputspan:hover {
   background-color: #e3e4ec;
 }
-@media only screen {
-  #inputspan:hover {
-    background-color: white;
-  }
-}
 .buttonHideIconAnimation {
   opacity: 0;
   transform: rotate(30deg) scale(0);
