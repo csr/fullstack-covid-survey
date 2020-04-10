@@ -2,12 +2,10 @@
 	<div id="mapcontainer">
 		<div id="mapid"></div>
 	</div>
-
 	<div v-if="surveyContainerOpen" id="surveycontainer">
 		<div id="containerinfo">
-			<h3>Hai sintomi del COVID-19?</h3>
-			<p>Per esempio febbre, tosse, affanno, dolori muscolari.</p>
-
+			<h3>{{currentState.title}}</h3>
+			<p>{{currentState.subtitle}}</p>
 		</div>
 		<form id="customform" action="/api/v1/call" method="POST">
 			<label id="inputspan" @click="radioclicked">

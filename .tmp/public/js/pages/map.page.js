@@ -7,6 +7,11 @@
 
       surveyContainerOpen: false,
 
+      currentState: {
+        title: 'empty',
+        subtitle: 'empty'
+      },
+
       states: {
         'anySymptoms': {
           title: 'Hai sintomi del COVID-19?',
@@ -91,6 +96,8 @@
           // Remove chat icon
           $('#chaticon').addClass('buttonHideIconAnimation');
 
+          this._refreshState("anySymptoms");
+
         } else {
           console.log('Ok, hiding survey.')
           this.surveyContainerOpen = false;
@@ -99,6 +106,11 @@
           // Show chat icon
           $('#chaticon').removeClass('buttonHideIconAnimation');
         }
+      },
+
+      _refreshState: function(contextKey) {
+        this.currentState = this.states[contextKey];
+        console.log('Ok, setting new state:', this.currentState);
       },
 
       _marshalEntries: function(entries) {
@@ -118,12 +130,9 @@
         };
       },
 
-      submittedTrackSymptomsModal: function() {
-        console.log('ok it worked!');
-        this.$forceUpdate();
-      },
-
       radioclicked: function(event) {
+        // TODO: save answer for context
+
         console.log('well, radio clicked', event);
         var context = event.toElement.name;
         var answer = event.toElement.value;
