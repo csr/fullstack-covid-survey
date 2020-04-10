@@ -40,8 +40,8 @@
             }
           },
         },
-        'cough': {
-          id: 'cough',  
+        'hasCough': {
+          id: 'hasCough',  
           title: 'Hai la tosse?',
           inputs: {
             "option1": {
@@ -51,6 +51,25 @@
             "option2": {
               value: 'no',
               userFacingLabel: 'No, non ho tosse',
+            }
+          },
+        },
+        'cough': {
+          id: 'cough',  
+          title: 'Che tipo di tosse?',
+          subtitle: 'Scegli un\'opzione:',
+          inputs: {
+            "option1": {
+              value: 'dry_cough',
+              userFacingLabel: 'Secca',
+            },
+            "option2": {
+              value: 'whooping_cough',
+              userFacingLabel: 'Produttiva',
+            },
+            "option3": {
+              value: 'wet_cough',
+              userFacingLabel: 'Convulsa',
             }
           },
         },
@@ -179,6 +198,19 @@
           },
         },
 
+        'endofsurvey': {
+          id: 'endofsurvey',  
+          title: 'Tutto finito',
+          subtitle: 'Il sito è ancora in beta e non è stato inviato ancora nulla.',
+          inputs: {
+            "option1": {
+              value: 'fatto',
+              userFacingLabel: 'Chiudi',
+            },
+          },
+        },
+
+
       },
 
       formAnswers: {
@@ -238,7 +270,6 @@
       clickOpenSurveyButton: function(event) {
         var x = document.getElementById("surveycontainer");
         if (!this.surveyContainerOpen) {
-          console.log('Ok, showing survey.')
           this.surveyContainerOpen = true;
           // Show cross
           $('#crossicon').removeClass('buttonHideIconAnimation');
@@ -248,7 +279,6 @@
           this._refreshState('anySymptoms');
 
         } else {
-          console.log('Ok, hiding survey.')
           this.surveyContainerOpen = false;
           // Hide cross
           $('#crossicon').addClass('buttonHideIconAnimation');
@@ -279,17 +309,23 @@
         };
       },
 
-      radioclicked: function(event) {
+      radioclicked: function(input) {
         // TODO: save answer for context
-        console.log('well, radio clicked', event);
-        var context = event.toElement.name;
-        var answer = event.toElement.value;
+        console.log('BUTTON CLICKED with input:', input);
+        var context = this.currentState.id;
+        var answer = input.value;
         console.log('context: ', context, ', answer: ', answer);
 
-        if (this.currentState.id == 'anySymptoms') {
+        if (this.currentState.id == 'anySymptoms' && answer == 'yes') {
           this._refreshState('feverTemperature');
+        } else if (this.currentState.id == 'anySymptoms' && answer == 'no') {
+          this._refreshState('location');
         } else if (this.currentState.id == 'feverTemperature') {
+          this._refreshState('hasCough');
+        } else if (this.currentState.id == 'hasCough' && answer == 'yes') {
           this._refreshState('cough');
+        } else if (this.currentState.id == 'hasCough' && answer == 'no') {
+          this._refreshState('shortnessBreath');
         } else if (this.currentState.id == 'cough') {
           this._refreshState('shortnessBreath');
         } else if (this.currentState.id == 'shortnessBreath') {
@@ -304,6 +340,11 @@
           this._refreshState('diarrhea');
         } else if (this.currentState.id == 'diarrhea') {
           this._refreshState('location');
+        } else if (this.currentState.id == 'location') {
+          this._refreshState('endofsurvey');
+        } else if (this.currentState.id == 'endofsurvey') {
+          // Close panel
+          $('#surveybutton').trigger('click');
         }
 
         $(".radioelement").prop('checked', false); 

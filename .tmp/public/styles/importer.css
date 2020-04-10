@@ -17,17 +17,17 @@
 html,
 body {
   height: 100%;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Lato', sans-serif;
   margin: 0 auto;
   background-color: #ffffff;
 }
 h1 {
   font-size: 44px;
-  font-weight: 300;
+  font-weight: 500;
 }
 h3 {
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 500;
 }
 #page-wrap {
   height: 100%;
@@ -1179,6 +1179,11 @@ input[type=tel] {
 }
 #inputspan:hover {
   background-color: #e3e4ec;
+}
+@media only screen {
+  #inputspan:hover {
+    background-color: white;
+  }
 }
 .buttonHideIconAnimation {
   opacity: 0;
