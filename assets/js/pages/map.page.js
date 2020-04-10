@@ -8,26 +8,36 @@
       surveyContainerOpen: false,
 
       currentState: {
-        title: 'empty',
-        subtitle: 'empty'
       },
 
       states: {
         'anySymptoms': {
           title: 'Hai sintomi del COVID-19?',
           subtitle: 'Per esempio febbre, tosse, affanno, dolori muscolari.',
-          options: [
-            "yes",
-            "no"
-          ],
+          inputs: {
+            "option1": {
+              value: 'yes',
+              userFacingLabel: 'Sì, ho sintomi',
+            },
+            "option2": {
+              value: 'no',
+              userFacingLabel: 'No, non ho sintomi',
+            }
+          },
         },
         'feverTemperature': {
           title: 'Hai la febbre?',
           subtitle: 'La febbre è uno dei principali sintomi del COVID-19.',
-          options: [
-            "yes",
-            "no"
-          ],
+          inputs: {
+            "option1": {
+              value: 'yes',
+              userFacingLabel: 'Sì, ho la febbre',
+            },
+            "option2": {
+              value: 'no',
+              userFacingLabel: 'No, non ho febbre',
+            }
+          },
         },
       },
 
@@ -132,11 +142,12 @@
 
       radioclicked: function(event) {
         // TODO: save answer for context
-
         console.log('well, radio clicked', event);
         var context = event.toElement.name;
         var answer = event.toElement.value;
         console.log('context: ', context, ', answer: ', answer);
+
+        this._refreshState('feverTemperature');
       },
     }
   });
