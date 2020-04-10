@@ -22,21 +22,6 @@
 	height: 100%;
 }
 
-@media only screen and (max-width: 550px) {
-  h1 {
-  	font-size: 26px;
-  }
-
-  h3 {
-  	font-size: 18px;
-  }
-
-  #faqcontainer {
-  	margin: 30px;
-  	display: none;
-  }
-}
-
 #textContainer {
   font-weight: 700;
   text-rendering: optimizeLegibility;
@@ -62,7 +47,7 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
 }
 
-#pathclose {
+.custompath {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -76,29 +61,25 @@
   opacity: 1;
   transform: rotate(0deg);
   transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
-
 }
 
 #surveycontainer {
   position: absolute;
   z-index: 1000000;
-  // margin-top: 30px;
   bottom: 105px;
   right: 25px;
-
   display: block;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
   padding: 35px;
-  // flex: 0 0 50%;
-  // width: 100%;
   width: 376px;
   background-color: white;
   color: #41464D;
   align-items: center;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
+  display: none;
 }
 
 #customform {
@@ -110,31 +91,9 @@
   margin: 20px auto 0;
 }
 
-@media (max-width: 700px) {
-  // .widecontainer {
-  //   margin-top: 20px;
-  //   display: block;
-  // }
-
-  // #surveycontainer {
-  //   display: block;
-  //   width: 100%;
-  //   padding: 30px 20px;
-  //   margin-bottom: 20px;
-  //   margin-top: 30px;
-  // }
-}
-
-.smalltext {
-  line-height: 24px;
-  margin-bottom: 2px;
-  font-size: 16px;
-}
-
 #containerinfo {
   margin-bottom: 20px;
 }
-
 
 #page-wrap {
   padding-bottom: 0px;
@@ -157,21 +116,21 @@ input[type=text], input[type=tel] {
 
 #input1 {
   background-color: #fff;
-      margin: 25px 0;
-      width: 100%;
-      font-size: 18px;
-      line-height: 30px;
-      text-align: center;
-      text-transform: capitalize;
-      box-shadow: 0 0 14px 2px rgba(0,0,0,.25);
-      border-radius: 4px;
-      cursor: pointer;
-      color: #000;
-      vertical-align: middle;
-      height: 55px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+  margin: 25px 0;
+  width: 100%;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  text-transform: capitalize;
+  box-shadow: 0 0 14px 2px rgba(0,0,0,.25);
+  border-radius: 4px;
+  cursor: pointer;
+  color: #000;
+  vertical-align: middle;
+  height: 55px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #inputspan {
@@ -216,3 +175,8 @@ input[type=text], input[type=tel] {
   background-color: rgb(227, 228, 236);
 }
 
+.buttonHideIconAnimation {
+  opacity: 0;
+  transform: rotate(30deg) scale(0);
+  transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
+}

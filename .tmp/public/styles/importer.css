@@ -1039,18 +1039,6 @@ h3 {
   width: 100%;
   height: 100%;
 }
-@media only screen and (max-width: 550px) {
-  h1 {
-    font-size: 26px;
-  }
-  h3 {
-    font-size: 18px;
-  }
-  #faqcontainer {
-    margin: 30px;
-    display: none;
-  }
-}
 #textContainer {
   font-weight: 700;
   text-rendering: optimizeLegibility;
@@ -1074,7 +1062,7 @@ h3 {
   z-index: 1000000;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
 }
-#pathclose {
+.custompath {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -1103,6 +1091,7 @@ h3 {
   align-items: center;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
+  display: none;
 }
 #customform {
   display: block;
@@ -1110,13 +1099,6 @@ h3 {
 #custombutton {
   display: block;
   margin: 20px auto 0;
-}
-@media (max-width: 700px) {
-}
-.smalltext {
-  line-height: 24px;
-  margin-bottom: 2px;
-  font-size: 16px;
 }
 #containerinfo {
   margin-bottom: 20px;
@@ -1193,4 +1175,9 @@ input[type=tel] {
 }
 #inputspan:hover {
   background-color: #e3e4ec;
+}
+.buttonHideIconAnimation {
+  opacity: 0;
+  transform: rotate(30deg) scale(0);
+  transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
 }

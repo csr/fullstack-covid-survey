@@ -50,14 +50,35 @@ parasails.registerPage('map', {
     this.reports.forEach(addPinToMap);
     console.log('reports:', this.reports);
 
+    var x = document.getElementById("surveycontainer");
+    x.style.display = "none";
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
-    myFunction: function() {
-      console.log('Hello world!')
+    myFunction: function(event) {
+      console.log('Hello world!', event);
+      var x = document.getElementById("surveycontainer");
+      
+      if (x.style.display === "none") {
+        console.log('Ok, showing survey.')
+        // Show survey
+        x.style.display = "block";
+        // Show cross
+        $('#crossicon').removeClass('buttonHideIconAnimation');
+        // Remove chat icon
+        $('#chaticon').addClass('buttonHideIconAnimation');
+      } else {
+        console.log('Ok, hiding survey.')
+        // Hide survey
+        x.style.display = "none";
+        // Hide cross
+        $('#crossicon').addClass('buttonHideIconAnimation');
+        // Show chat icon
+        $('#chaticon').removeClass('buttonHideIconAnimation');
+      }
     },
 
     _marshalEntries: function(entries) {
