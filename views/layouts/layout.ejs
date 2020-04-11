@@ -5,7 +5,7 @@
 } %><!DOCTYPE html>
 <html>
   <head>
-    <title>Questionario</title>
+    <title>Mappa COVID-19</title>
 
     <% /* Viewport tag for sensible mobile support */ %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -59,11 +59,9 @@
           <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'map' ? 'current' : ''%>"
               href="/map">Mappa</a>
           <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'faq' ? 'current' : ''%>"
-                  href="/faq">FAQ</a>
+                  href="/faq">Aiuto</a>
           <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'contact' ? 'current' : ''%>"
               href="/contact">Contatti</a>
-          <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'app' ? 'current' : ''%>"
-                  href="/">Scarica l'app</a>
         </div>
       </header>
 

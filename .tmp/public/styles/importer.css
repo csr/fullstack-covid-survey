@@ -1042,7 +1042,7 @@ h3 {
 #surveybutton {
   position: absolute;
   bottom: 25px;
-  right: 25px;
+  right: 10px;
   width: 60px;
   height: 60px;
   cursor: pointer;
@@ -1089,11 +1089,9 @@ h3 {
   #surveycontainer {
     width: 90%;
     right: 10px;
-    bottom: 110px;
   }
   #surveybutton {
     position: absolute;
-    bottom: 40px;
     right: 10px;
   }
 }

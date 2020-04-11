@@ -26,8 +26,8 @@
             }
           },
         },
-        'feverTemperature': {
-          id: 'feverTemperature',  
+        'hasFever': {
+          id: 'hasFever',  
           title: 'Hai la febbre?',
           inputs: {
             "option1": {
@@ -38,6 +38,57 @@
               value: 'no',
               userFacingLabel: 'No, non ho febbre',
             }
+          },
+        },
+        'feverTemperature': {
+          id: 'feverTemperature',  
+          title: 'Qual è la tua termperatura corporea?',
+          subtitle: 'Scegli l\' opzione che si avvicina di più:',
+          inputs: {
+            "option1": {
+              value: '37.5',
+              userFacingLabel: '37.5°',
+            },
+            "option2": {
+              value: '38',
+              userFacingLabel: '38°',
+            },
+            "option3": {
+              value: '38.5',
+              userFacingLabel: '38.5°',
+            },
+            "option4": {
+              value: '39',
+              userFacingLabel: '39°',
+            },
+            "option4": {
+              value: 'more',
+              userFacingLabel: 'Più di 39°',
+            },
+
+          },
+        },
+        'higherFeverTemperature': {
+          id: 'higherFeverTemperature',  
+          title: 'Quanto di preciso?',
+          subtitle: 'Scegli un\' opzione:',
+          inputs: {
+            "option1": {
+              value: '39.5',
+              userFacingLabel: '39.5°',
+            },
+            "option2": {
+              value: '40',
+              userFacingLabel: '40°',
+            },
+            "option3": {
+              value: '40.5',
+              userFacingLabel: '40.5°',
+            },
+            "option4": {
+              value: '41',
+              userFacingLabel: '41°',
+            },
           },
         },
         'hasCough': {
@@ -106,7 +157,7 @@
             },
             "option3": {
               value: '0',
-              userFacingLabel: 'No',
+              userFacingLabel: 'No, non mi sento debole',
             }
           },
         },
@@ -124,7 +175,7 @@
             },
             "option3": {
               value: '0',
-              userFacingLabel: 'No',
+              userFacingLabel: 'No, non ho mal di gola',
             }
           },
         },
@@ -142,7 +193,7 @@
             },
             "option3": {
               value: '0',
-              userFacingLabel: 'No',
+              userFacingLabel: 'No, non ho mal di testa',
             }
           },
         },
@@ -160,13 +211,13 @@
             },
             "option3": {
               value: '0',
-              userFacingLabel: 'No',
+              userFacingLabel: 'No, non starnutisco',
             }
           },
         },
         'diarrhea': {
           id: 'diarrhea',  
-          title: 'Hai disturbi di diarrhea?',
+          title: 'Hai disturbi di diarrea?',
           inputs: {
             "option1": {
               value: '5',
@@ -178,7 +229,7 @@
             },
             "option3": {
               value: '0',
-              userFacingLabel: 'No',
+              userFacingLabel: 'No, non ho diarrea',
             }
           },
         },
@@ -317,10 +368,16 @@
         console.log('context: ', context, ', answer: ', answer);
 
         if (this.currentState.id == 'anySymptoms' && answer == 'yes') {
-          this._refreshState('feverTemperature');
+          this._refreshState('hasFever');
         } else if (this.currentState.id == 'anySymptoms' && answer == 'no') {
           this._refreshState('location');
-        } else if (this.currentState.id == 'feverTemperature') {
+        } else if (this.currentState.id == 'hasFever' && answer == 'yes') {
+          this._refreshState('feverTemperature');
+        } else if (this.currentState.id == 'hasFever' && answer == 'no') {
+          this._refreshState('hasCough');
+        } else if (this.currentState.id == 'feverTemperature' && answer == 'more') {
+          this._refreshState('higherFeverTemperature');
+        } else if (this.currentState.id == 'feverTemperature' || this.currentState.id == 'higherFeverTemperature') {
           this._refreshState('hasCough');
         } else if (this.currentState.id == 'hasCough' && answer == 'yes') {
           this._refreshState('cough');
