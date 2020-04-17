@@ -314,6 +314,25 @@
       console.log('Showing the following reports on map:', this.reports);
 
       this._setupAlgoliaPlaces();
+
+      console.log('Setting up Algolia places...');
+      var placesAutocomplete = places({
+        appId: 'pl7A8UHH7NSM',
+        apiKey: '427f13c5c54d8dab3949457f7593f189',
+        container: document.querySelector('#address-input')
+      });
+
+      placesAutocomplete.on('change', handleOnChange);
+
+      // Fired when suggestion selected in the dropdown or hint was validated.
+      function handleOnChange(e) {
+        const lat = e.suggestion.latlng.lat;
+        const lng = e.suggestion.latlng.lng;
+
+        // var map = L.map('mapid').setView([45.4735629, 9.1771209], minimumZoomLevelRequired);
+        map.setView([lat, lng], 10);
+        // loadMarkers(lat, lng);
+      }
     },
 
     //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
@@ -322,12 +341,6 @@
     methods: {
       _setupAlgoliaPlaces: function() {
         this.$forceUpdate();
-        console.log('Setting up Algolia places...');
-        var placesAutocomplete = places({
-          appId: 'pl7A8UHH7NSM',
-          apiKey: '427f13c5c54d8dab3949457f7593f189',
-          container: document.querySelector('#address-input')
-        });
       },
 
       clickOpenSurveyButton: function(event) {
