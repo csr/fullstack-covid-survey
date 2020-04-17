@@ -912,8 +912,8 @@ h3 {
   padding-bottom: 75px;
 }
 #faq {
-  padding-top: 75px;
-  padding-bottom: 75px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 @media (max-width: 500px) {
   #faq code {
@@ -922,12 +922,13 @@ h3 {
 }
 @media only screen and (max-width: 550px) {
   #faq {
-    padding-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 #contact {
-  padding-top: 75px;
-  padding-bottom: 75px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 #contact .contact-form {
   width: 100%;
@@ -1031,6 +1032,7 @@ h3 {
 #mapid {
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 #textContainer {
   font-weight: 700;
@@ -1093,6 +1095,11 @@ h3 {
   #surveybutton {
     position: absolute;
     right: 10px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  #mapcontainer {
+    top: 110px;
   }
 }
 #customform {

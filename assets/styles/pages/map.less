@@ -11,6 +11,7 @@
 #mapid {
 	width: 100%;
 	height: 100%;
+  z-index: 1;
 }
 
 #textContainer {
@@ -83,6 +84,13 @@
     right: 10px;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  #mapcontainer {
+    top: 110px;
+  }
+}
+
 
 #customform {
   display: block;
@@ -188,4 +196,8 @@ input[type=text], input[type=tel] {
   opacity: 0;
   transform: rotate(30deg) scale(0);
   transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
+}
+
+#mysearchbarcontainer {
+  // z-index: 10000000000000000000;
 }

@@ -11,8 +11,8 @@
       },
 
       states: {
-        'anySymptoms': {
-          id: 'anySymptoms',
+        'hasSymptoms': {
+          id: 'hasSymptoms',
           title: 'Hai sintomi del COVID-19?',
           subtitle: 'Per esempio febbre, tosse, affanno, dolori muscolari.',
           inputs: {
@@ -312,12 +312,24 @@
 
       this.reports.forEach(addPinToMap);
       console.log('Showing the following reports on map:', this.reports);
+
+      this._setupAlgoliaPlaces();
     },
 
     //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
     //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
     methods: {
+      _setupAlgoliaPlaces: function() {
+        this.$forceUpdate();
+        console.log('Setting up Algolia places...');
+        var placesAutocomplete = places({
+          appId: 'pl7A8UHH7NSM',
+          apiKey: '427f13c5c54d8dab3949457f7593f189',
+          container: document.querySelector('#address-input')
+        });
+      },
+
       clickOpenSurveyButton: function(event) {
         var x = document.getElementById("surveycontainer");
         if (!this.surveyContainerOpen) {
@@ -327,7 +339,7 @@
           // Remove chat icon
           $('#chaticon').addClass('buttonHideIconAnimation');
 
-          this._refreshState('anySymptoms');
+          this._refreshState('hasSymptoms');
 
         } else {
           this.surveyContainerOpen = false;
@@ -361,15 +373,18 @@
       },
 
       radioclicked: function(input) {
-        // TODO: save answer for context
         console.log('BUTTON CLICKED with input:', input);
         var context = this.currentState.id;
         var answer = input.value;
         console.log('context: ', context, ', answer: ', answer);
 
-        if (this.currentState.id == 'anySymptoms' && answer == 'yes') {
+        // TODO: save answer for context
+        this.formAnswers[context] = answer
+        console.log('Answers so far:', this.formAnswers);
+
+        if (this.currentState.id == 'hasSymptoms' && answer == 'yes') {
           this._refreshState('hasFever');
-        } else if (this.currentState.id == 'anySymptoms' && answer == 'no') {
+        } else if (this.currentState.id == 'hasSymptoms' && answer == 'no') {
           this._refreshState('location');
         } else if (this.currentState.id == 'hasFever' && answer == 'yes') {
           this._refreshState('feverTemperature');
