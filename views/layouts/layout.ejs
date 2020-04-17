@@ -53,7 +53,8 @@
   </head>
   <body>
     <div id="page-wrap">
-      <header id="page-header" class="navbar navbar-expand-sm flex-column flex-md-row justify-content-between">
+      <header id="page-header" class="navbar navbar-expand-sm flex-column flex-sm-row justify-content-between">
+        <a></a>
         <div class="navbar-nav flex-row">
           <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'map' ? 'current' : ''%>"
               href="/map">Mappa</a>
@@ -62,8 +63,9 @@
           <a class="nav-item nav-link text-dark ml-2 mr-2 <%= typeof currentSection !== 'undefined' && currentSection === 'contact' ? 'current' : ''%>"
               href="/contact">Contatti</a>
         </div>
+
         <% if (currentSection == 'map') { %>
-        <input type="search" id="address-input" placeholder="Cerca una località" />
+        <input v-if='currentSection == map' type="search" id="address-input" placeholder="Cerca una località" class="nav-item ml-md-2 mr-2"/>
         <% } else { %>
           <a></a>
         <% } %>
