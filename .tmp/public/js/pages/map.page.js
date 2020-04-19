@@ -382,7 +382,18 @@
         }
 
         if (report.cough) {
-          description += '<li>Tosse' + '</li>';
+          description += '<li>Tosse ';
+
+          if (report.cough == 'wet_cough') {
+            description += 'produttiva';
+          } else if (report.cough == 'whooping_cough') {
+            description += 'convulsa';
+          } else if (report.cough == 'productive_cough') {
+            description += 'secca';
+          }
+
+          description += '</li>';
+
         }
 
 
