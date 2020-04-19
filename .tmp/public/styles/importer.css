@@ -1193,3 +1193,10 @@ input[type=tel] {
   transform: rotate(30deg) scale(0);
   transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
 }
+#chatbubble {
+  position: absolute;
+  right: 30px;
+  bottom: 0px;
+  width: 300px;
+  z-index: 1000000000;
+}
