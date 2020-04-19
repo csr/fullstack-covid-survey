@@ -1086,6 +1086,13 @@ h3 {
   align-items: center;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
+  animation-duration: 0.3s;
+  /* the duration of the animation */
+  animation-delay: 1s;
+  /* how long to delay the animation from starting */
+  animation-iteration-count: 1;
+  /* how many times the animation will play */
+  animation-fill-mode: forwards;
 }
 @media only screen and (max-width: 550px) {
   #surveycontainer {
@@ -1194,6 +1201,7 @@ input[type=tel] {
   transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
 }
 #chatbubble {
+  cursor: pointer;
   position: absolute;
   background-color: white;
   right: 80px;
@@ -1205,6 +1213,36 @@ input[type=tel] {
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  animation-duration: 0.3s;
+  /* the duration of the animation */
+  animation-delay: 1s;
+  /* how long to delay the animation from starting */
+  animation-iteration-count: 1;
+  /* how many times the animation will play */
+  animation-name: slideInFromLeft;
+  /* the name of the animation we defined above */
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    right: 50px;
+  }
+  100% {
+    opacity: 1;
+    right: 80px;
+  }
+}
+@keyframes surveyContainerSlideInFromLeft {
+  0% {
+    opacity: 0;
+    right: -300px;
+  }
+  100% {
+    opacity: 1;
+    right: 25px;
+  }
 }
 @media only screen and (max-width: 420px) {
   #chatbubble {
@@ -1228,4 +1266,7 @@ input[type=tel] {
   pointer-events: none;
   box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+.chatBubbleHideIconAnimation {
+  display: none;
 }
