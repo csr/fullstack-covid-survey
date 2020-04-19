@@ -1119,9 +1119,6 @@ h3 {
   display: block;
   margin: 20px auto 0;
 }
-#containerinfo {
-  margin-bottom: 20px;
-}
 #page-wrap {
   padding-bottom: 0px;
 }
@@ -1274,5 +1271,9 @@ input[type=tel] {
   cursor: pointer;
 }
 .chatBubbleHideIconAnimation {
+  display: none;
+}
+#inputaddress {
+  height: 55px;
   display: none;
 }

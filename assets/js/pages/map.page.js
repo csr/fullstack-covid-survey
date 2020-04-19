@@ -235,30 +235,14 @@
         },
         'location': {
           id: 'location',  
-          title: 'Grazie',
-          subtitle: 'Posso condividere la tua posizione approssimativa? Verrà mostrata su una mappa che permette alla collettività di seguire l\'evolversi della pandemia.',
-          inputs: {
-            "option1": {
-              value: '5',
-              userFacingLabel: 'Sì, localizzami',
-            },
-            "option2": {
-              value: '3',
-              userFacingLabel: 'Preferisco di no',
-            },
-          },
+          title: 'Posizione',
+          subtitle: 'Inserisci il nome della città o indirizzo (senza numero) per dare il tuo contributo.',
         },
 
         'endofsurvey': {
           id: 'endofsurvey',  
-          title: 'Tutto finito',
-          subtitle: 'Il sito è ancora in beta e non è stato inviato ancora nulla.',
-          inputs: {
-            "option1": {
-              value: 'fatto',
-              userFacingLabel: 'Chiudi',
-            },
-          },
+          title: 'Grazie',
+          subtitle: 'Il tuo contributo è prezioso per fermare il COVID-19.',
         },
 
 
@@ -267,8 +251,6 @@
       formAnswers: {
 
       },
-
-      promptTrackSymptomsModalOpen: false,
 
       // Syncing/loading state
       syncing: false,
@@ -379,16 +361,6 @@
         });
       },
 
-      closeTrackSymptomsModal: function() {
-        this.promptTrackSymptomsModalOpen = false;
-      },
-
-      handleParsingTrackSymptomsModal: function() {
-        return {
-          id: this.selectedThing.id
-        };
-      },
-
       sendReport: async function(input) {
         console.log('Creating new database record...')
 
@@ -401,10 +373,10 @@
       },
 
       radioclicked: function(input) {
-        console.log('BUTTON CLICKED with input:', input);
         var context = this.currentState.id;
         var answer = input.value;
         console.log('context: ', context, ', answer: ', answer);
+
 
         // TODO: save answer for context
         this.formAnswers[context] = answer
@@ -413,7 +385,7 @@
         if (this.currentState.id == 'hasSymptoms' && answer == 'yes') {
           this._refreshState('hasFever');
         } else if (this.currentState.id == 'hasSymptoms' && answer == 'no') {
-          this._refreshState('location');
+          this._refreshState('endofsurvey');
         } else if (this.currentState.id == 'hasFever' && answer == 'yes') {
           this._refreshState('feverTemperature');
         } else if (this.currentState.id == 'hasFever' && answer == 'no') {
@@ -439,7 +411,23 @@
         } else if (this.currentState.id == 'sneezing') {
           this._refreshState('diarrhea');
         } else if (this.currentState.id == 'diarrhea') {
+          // Ask for location
           this._refreshState('location');
+
+          // Display location input field
+          console.log('Displaying address input bar...');
+
+          // Setup Algolia places
+          console.log('Setting up Algolia places for survey...');
+          var placesAutocomplete = places({
+            appId: 'pl7A8UHH7NSM',
+            apiKey: '427f13c5c54d8dab3949457f7593f189',
+            container: document.querySelector('#inputaddress')
+          });
+
+
+          document.getElementById('inputaddress').style.display="block"; 
+
         } else if (this.currentState.id == 'location') {
           this.sendReport();
           this._refreshState('endofsurvey');
