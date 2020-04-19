@@ -16,7 +16,14 @@
 					</span>
 				</label>
 			</div>
-			<input type="search" id="inputaddress" placeholder="Inserisci città o indirizzo..."/>
+			<ajax-form>
+			<div v-for="field in currentState.fields">
+					<input type="search" id="inputaddress" placeholder="Inserisci città o indirizzo..."/ required>
+			</div>
+			<div v-for="button in currentState.buttons">
+				<button id="addressbutton" @click="buttonclicked(button)">{{button.userFacingLabel}}</button>
+			</div>
+			</form>
 		</div>
 		<div id="chatbubble">
 			Ciao 👋 Vuoi contribuire alla mappa? Fermiamo il COVID-19.

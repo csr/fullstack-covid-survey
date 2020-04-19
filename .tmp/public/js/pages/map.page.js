@@ -10,6 +10,10 @@
       currentState: {
       },
 
+      lat: 0,
+
+      long: 0,
+
       states: {
         'hasSymptoms': {
           id: 'hasSymptoms',
@@ -235,14 +239,32 @@
         },
         'location': {
           id: 'location',  
-          title: 'Posizione',
+          title: 'Dove ti trovi?',
           subtitle: 'Inserisci il nome della città o indirizzo (senza numero) per dare il tuo contributo.',
+          fields: {
+            "location": {
+              value: 'location',
+              userFacingLabel: 'location',
+            }
+          },
+          buttons: {
+            "confirm": {
+              value: 'confirm',
+              userFacingLabel: 'Conferma',
+            },
+          }
         },
 
         'endofsurvey': {
           id: 'endofsurvey',  
           title: 'Grazie',
           subtitle: 'Il tuo contributo è prezioso per fermare il COVID-19.',
+          buttons: {
+            "close": {
+              value: 'close',
+              userFacingLabel: 'Chiudi',
+            },
+          }
         },
 
 
@@ -283,10 +305,13 @@
       var heatLayer = L.heatLayer([
       ], {radius: 100, gradient: {0.4: 'blue', 0.65: 'lime', 1: 'red'}}).addTo(layerGroup);
 
-      function addPinToMap(value, index, array) {
-        L.marker([value.lat, value.long]).addTo(map)
-            .bindPopup(value.completionDate.toString());
-        var latlng = L.latLng(value.lat, value.long, 1);
+      var that = this;
+      function addPinToMap(report, index, array) {
+        var popupText = that.getReportDescription(report);
+
+        L.marker([report.lat, report.long]).addTo(map)
+            .bindPopup(popupText);
+        var latlng = L.latLng(report.lat, report.long, 1);
         heatLayer.addLatLng(latlng);
       }
 
@@ -308,19 +333,80 @@
       function handleOnChange(e) {
         const lat = e.suggestion.latlng.lat;
         const lng = e.suggestion.latlng.lng;
-
-        // var map = L.map('mapid').setView([45.4735629, 9.1771209], minimumZoomLevelRequired);
         map.setView([lat, lng], 10);
-        // loadMarkers(lat, lng);
       }
     },
+
 
     //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
     //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
     methods: {
+      getReportDescription: function(report) {
+        var description = ""
+        var newLine = "<br />"
+
+        description += "<b>Inviato il " + this.timeConverter(report.completionDate) + '</b>' + newLine;
+        
+        description += 'Sintomi:'
+
+        // Start List
+        description += '<ul>';
+
+        if (report.feverTemperature) {
+          description += '<li>Febbre: ' + report.feverTemperature + '°</li>';
+        }
+
+        if (report.sneezing) {
+          description += '<li>Starnuti' + '</li>';
+        }
+
+        if (report.diarrhea) {
+          description += '<li>Diarrea' + '</li>';
+        }
+
+        if (report.headache) {
+          description += '<li>Mal di testa' + '</li>';
+        }
+
+        if (report.shortnessBreath) {
+          description += '<li>Respiro corto' + '</li>';
+        }
+
+        if (report.bodyWeakness) {
+          description += '<li>Dolori muscolari' + '</li>';
+        }
+
+        if (report.soreThroat) {
+          description += '<li>Mal di gola' + '</li>';
+        }
+
+        if (report.cough) {
+          description += '<li>Tosse' + '</li>';
+        }
+
+
+        description += '</ul>';
+
+
+        return description
+      },
+
       _setupAlgoliaPlaces: function() {
         this.$forceUpdate();
+      },
+
+      timeConverter: function(UNIX_timestamp) {
+        var a = new Date(UNIX_timestamp * 1000);
+        var months = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+        var year = a.getFullYear();
+        var month = months[a.getMonth()];
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        var sec = a.getSeconds();
+        var time = date + ' ' + month + ' ' + year;
+        return time;
       },
 
       clickOpenSurveyButton: function(event) {
@@ -349,9 +435,48 @@
         }
       },
 
+      // Fired when suggestion selected in the dropdown or hint was validated.
+      _updateLatLong: function(e) {
+        const latitude = e.suggestion.latlng.lat;
+        const longitude = e.suggestion.latlng.lng;
+        this.lat = latitude;
+        this.long = longitude;
+        console.log('updated lat and long:' + this.lat + ' ,' + this.long);
+      },
+
       _refreshState: function(contextKey) {
         this.currentState = this.states[contextKey];
         console.log('Ok, setting new state with id:', this.currentState.id);
+
+        this.$forceUpdate();
+
+        var originalThis = this;
+
+        var delayInMilliseconds = 1; //1 second
+
+        if (this.currentState.id == 'location') {
+
+          setTimeout(function() {
+            //your code to be executed after 1 second
+            console.log('Setting up Algolia places...');
+            var placesAutocomplete = places({
+              appId: 'pl7A8UHH7NSM',
+              apiKey: '427f13c5c54d8dab3949457f7593f189',
+              container: document.querySelector('#inputaddress')
+            });
+            placesAutocomplete.on('change', handleOnChange);
+
+            function handleOnChange(e) {
+              console.log('hello world');
+
+              originalThis._updateLatLong(e);
+            }
+
+
+          }, delayInMilliseconds);
+        }
+
+
       },
 
       _marshalEntries: function(entries) {
@@ -365,9 +490,9 @@
         console.log('Creating new database record...')
 
         var timeIntervalSince1970 = new Date() / 1000;
-        this.formAnswers['completionDate'] = timeIntervalSince1970
-        this.formAnswers['lat'] = 100
-        this.formAnswers['long'] = 100
+        this.formAnswers['completionDate'] = timeIntervalSince1970;
+        this.formAnswers['lat'] = this.lat;
+        this.formAnswers['long'] = this.long;
 
         await Cloud.createReport(this.formAnswers);
       },
@@ -413,24 +538,6 @@
         } else if (this.currentState.id == 'diarrhea') {
           // Ask for location
           this._refreshState('location');
-
-          // Display location input field
-          console.log('Displaying address input bar...');
-
-          // Setup Algolia places
-          console.log('Setting up Algolia places for survey...');
-          var placesAutocomplete = places({
-            appId: 'pl7A8UHH7NSM',
-            apiKey: '427f13c5c54d8dab3949457f7593f189',
-            container: document.querySelector('#inputaddress')
-          });
-
-
-          document.getElementById('inputaddress').style.display="block"; 
-
-        } else if (this.currentState.id == 'location') {
-          this.sendReport();
-          this._refreshState('endofsurvey');
         } else if (this.currentState.id == 'endofsurvey') {
           // Close panel
           $('#surveybutton').trigger('click');
@@ -438,5 +545,20 @@
 
         $(".radioelement").prop('checked', false); 
       },
+
+      buttonclicked: function(input) {
+        console.log('button clicked!' + input.value)
+
+        if (input.value == 'close') {
+          $('#surveybutton').trigger('click');
+        } else if (input.value == 'confirm' && this.lat != 0 && this.long != 0) {
+          console.log('looks good!')
+          this.sendReport();
+          this._refreshState('endofsurvey');
+        } else {
+          console.log('something is missing, maybe :)');
+          console.log('lat: ', this.lat);
+        }
+      }
     }
   });
