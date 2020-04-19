@@ -947,7 +947,7 @@ h3 {
   text-align: center;
 }
 #contact {
-  padding-bottom: 0px;
+  padding-bottom: 20px;
 }
 #page-wrap {
   padding-bottom: 0px;
@@ -1194,6 +1194,12 @@ input[type=tel] {
 }
 #inputspan:hover {
   background-color: #e3e4ec;
+}
+@media (pointer: coarse) and (hover: none) {
+  /* your touchscreen specific rules */
+  #inputspan:hover {
+    background-color: white;
+  }
 }
 .buttonHideIconAnimation {
   opacity: 0;

@@ -46,19 +46,19 @@
           subtitle: 'Scegli l\' opzione che si avvicina di più:',
           inputs: {
             "option1": {
-              value: '37.5',
+              value: 37.5,
               userFacingLabel: '37.5°',
             },
             "option2": {
-              value: '38',
+              value: 38,
               userFacingLabel: '38°',
             },
             "option3": {
-              value: '38.5',
+              value: 38.5,
               userFacingLabel: '38.5°',
             },
             "option4": {
-              value: '39',
+              value: 39,
               userFacingLabel: '39°',
             },
             "option4": {
@@ -69,24 +69,24 @@
           },
         },
         'higherFeverTemperature': {
-          id: 'higherFeverTemperature',  
+          id: 'feverTemperature',  
           title: 'Quanto di preciso?',
           subtitle: 'Scegli un\' opzione:',
           inputs: {
             "option1": {
-              value: '39.5',
+              value: 39.5,
               userFacingLabel: '39.5°',
             },
             "option2": {
-              value: '40',
+              value: 40,
               userFacingLabel: '40°',
             },
             "option3": {
-              value: '40.5',
+              value: 40.5,
               userFacingLabel: '40.5°',
             },
             "option4": {
-              value: '41',
+              value: 41,
               userFacingLabel: '41°',
             },
           },
@@ -389,6 +389,17 @@
         };
       },
 
+      sendReport: async function(input) {
+        console.log('Creating new database record...')
+
+        var timeIntervalSince1970 = new Date() / 1000;
+        this.formAnswers['completionDate'] = timeIntervalSince1970
+        this.formAnswers['lat'] = 100
+        this.formAnswers['long'] = 100
+
+        await Cloud.createReport(this.formAnswers);
+      },
+
       radioclicked: function(input) {
         console.log('BUTTON CLICKED with input:', input);
         var context = this.currentState.id;
@@ -430,6 +441,7 @@
         } else if (this.currentState.id == 'diarrhea') {
           this._refreshState('location');
         } else if (this.currentState.id == 'location') {
+          this.sendReport();
           this._refreshState('endofsurvey');
         } else if (this.currentState.id == 'endofsurvey') {
           // Close panel
