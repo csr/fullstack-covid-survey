@@ -348,7 +348,7 @@ module.exports = {
     baseUrl: 'https://questionarioapp.herokuapp.com',
     internalEmailAddress: 'support@cesare.io',
 
-    mailgunDomain: 'https://api.mailgun.net/v3/sandboxc826fd94136243f0ade57690f3198e42.mailgun.org',
+    mailgunDomain: 'https://api.eu.mailgun.net/v3/waternear.me',
     mailgunSecret: 'b6dee18375aa78438c4edf608466ff1f-9dda225e-e882f432',
     // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',
     //--------------------------------------------------------------------------
