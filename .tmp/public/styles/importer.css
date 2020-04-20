@@ -1192,8 +1192,7 @@ input[type=tel] {
 #inputspan:hover {
   background-color: #e3e4ec;
 }
-@media (pointer: coarse) and (hover: none) {
-  /* your touchscreen specific rules */
+@media only screen and (max-device-width: 640px) {
   #inputspan:hover {
     background-color: white;
   }
