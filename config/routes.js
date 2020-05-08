@@ -18,8 +18,8 @@ module.exports.routes = {
   'GET /faq':                { action: 'view-faq', locals: { currentSection: 'faq' }},
   'GET /contact':            { action: 'view-contact', locals: { currentSection: 'contact' }},
   'GET /csrfToken':          { action: 'security/grant-csrf-token' },
-  'GET /legal/terms':        { action: 'legal/view-terms' },
-  'GET /legal/privacy':      { action: 'legal/view-privacy' },
+  'GET /terms':              { action: 'legal/view-terms', locals: { currentSection: 'terms' }},
+  // 'GET /legal/privacy':      { action: 'legal/view-privacy' },
 
   'POST /api/v1/create-report': { action: 'create-report' },
 
