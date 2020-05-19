@@ -240,7 +240,7 @@
         'location': {
           id: 'location',  
           title: 'Dove ti trovi?',
-          subtitle: 'Inserisci il nome della città o indirizzo (senza numero) per dare il tuo contributo.',
+          subtitle: 'Puoi inserire qualsiasi località nel mondo a tua scelta per lo scopo di questo esperimento:',
           fields: {
             "location": {
               value: 'location',
@@ -258,7 +258,7 @@
         'endofsurvey': {
           id: 'endofsurvey',  
           title: 'Grazie',
-          subtitle: 'Il tuo contributo è prezioso per fermare il COVID-19.',
+          subtitle: 'Hai concluso l\'esperimento. Puoi procedere alla compilazione del questionario.',
           buttons: {
             "close": {
               value: 'close',
