@@ -1,4 +1,5 @@
 # Full-stack COVID Survey
+Web app that helps the world track the spread of COVID-19. Users can anonymously send their symptoms such as fever, shortness of breath, and more.
 ![](demo.png)
 
 
