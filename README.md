@@ -1,4 +1,6 @@
-# app
+# Full-stack COVID Survey
+![](demo.png)
+
 
 a [Sails v1](https://sailsjs.com) application
 
